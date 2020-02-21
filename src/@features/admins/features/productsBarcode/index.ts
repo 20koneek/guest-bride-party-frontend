@@ -1,0 +1,1 @@
+export { productsBarcodeRoutes } from './routes'

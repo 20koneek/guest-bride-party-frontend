@@ -1,0 +1,7 @@
+@import '../../../@styles/index.css';
+
+.head {
+  grid-area: head;
+  background: yellow; /*var(--primary-bg-color);*/
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

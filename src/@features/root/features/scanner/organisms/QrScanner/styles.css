@@ -1,0 +1,9 @@
+@import '../../../../../../@styles/index.css';
+
+.qrScanner section div {
+  border-radius: 5px;
+  box-shadow: rgba(249, 250, 251, 0.5) 0 0 0 3px inset !important;
+}
+
+
+

@@ -1,0 +1,1 @@
+export { scannerRoutes } from './routes'

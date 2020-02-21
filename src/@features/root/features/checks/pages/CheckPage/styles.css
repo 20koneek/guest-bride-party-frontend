@@ -1,0 +1,6 @@
+@import '../../../../../../@styles/index.css';
+
+.scrollbar {
+  overflow: auto;
+  height: 100%;
+}

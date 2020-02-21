@@ -1,0 +1,9 @@
+@import '../../../@styles/index.css';
+
+.menu {
+  grid-area: menu ;
+}
+
+.drawer {
+
+}

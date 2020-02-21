@@ -1,0 +1,6 @@
+@import '../../../@styles/index.css';
+
+.content {
+  grid-area: content;
+  padding: 15px;
+}
