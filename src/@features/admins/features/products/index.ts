@@ -1,1 +1,0 @@
-export { productsRoutes } from './routes'

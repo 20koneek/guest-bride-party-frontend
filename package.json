@@ -10,7 +10,7 @@
     "gen": "graphql-codegen --config codegen.yml"
   },
   "engines": {
-    "node": "13.8.0",
+    "node": "13.9.0",
     "yarn": "1.21.1"
   },
   "browserslist": [
@@ -51,6 +51,7 @@
     "@types/react-qr-reader": "2.1.2",
     "@types/webpack": "4.41.3",
     "@types/webpack-env": "1.14.1",
+    "@types/yup": "^0.26.32",
     "@typescript-eslint/eslint-plugin": "2.10.0",
     "@typescript-eslint/parser": "2.10.0",
     "apollo-boost": "0.4.4",
@@ -79,7 +80,6 @@
     "eslint-plugin-react-hooks": "2.3.0",
     "file-loader": "5.0.2",
     "firebase": "7.5.2",
-    "formik": "2.0.6",
     "fs-extra": "8.1.0",
     "graphql": "14.5.8",
     "graphql-tag": "2.10.1",
@@ -118,7 +118,8 @@
     "webpack": "4.41.2",
     "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "yup": "^0.28.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.9.1",

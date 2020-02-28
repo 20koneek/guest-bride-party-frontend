@@ -1,1 +1,0 @@
-export { checksRoutes } from './routes'

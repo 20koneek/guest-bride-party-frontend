@@ -13,27 +13,27 @@ const defaultContext: FirebaseContextProps = { auth, currentUser: null }
 export const FirebaseContext = createContext<FirebaseContextProps>(defaultContext)
 
 export const FirebaseProvider: FC = ({ children }) => {
-  const [loaded, setLoaded] = useState(false)
-  const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser)
+    const [loaded, setLoaded] = useState(false)
+    const [currentUser, setCurrentUser] = useState<User | null>(() => auth.currentUser)
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user)
-      setLoaded(true)
-    })
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(async (user) => {
+            setCurrentUser(user)
+            setLoaded(true)
+        })
 
-    setTimeout(() => setLoaded(true), 1000)
+        auth.signInAnonymously()
 
-    return unsubscribe
-  }, [])
+        return unsubscribe
+    }, [])
 
-  return (
-    <FirebaseContext.Provider value={{ auth, currentUser }}>
-      {loaded ? (
-        children
-      ) : (
-        <Loading/>
-      )}
-    </FirebaseContext.Provider>
-  )
+    return (
+        <FirebaseContext.Provider value={{ auth, currentUser }}>
+            {loaded ? (
+                children
+            ) : (
+                <Loading/>
+            )}
+        </FirebaseContext.Provider>
+    )
 }

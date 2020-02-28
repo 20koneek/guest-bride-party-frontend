@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './styles.css'
 
-export const Page: React.FC = ({ children }) => (
-    <div className={styles.page}>
+export const Center: React.FC = ({ children }) => (
+    <div className={styles.center}>
         {children}
     </div>
 )

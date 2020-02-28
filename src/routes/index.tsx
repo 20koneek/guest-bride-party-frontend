@@ -1,15 +1,9 @@
 import React, { FC } from 'react'
 import { Router } from '@reach/router'
-import { adminRoutes } from '@features/admins'
-import { authenticationRoutes } from '@features/authentication'
-import { rootRoutes } from '../@features/root'
-import { scannerRoutes } from '@features/root/features/scanner'
+import { guestRoutes } from '@features/guest'
 
 const routes: React.ReactElement[] = [
-  ...rootRoutes,
-  ...adminRoutes,
-  ...authenticationRoutes,
-  ...scannerRoutes,
+  ...guestRoutes,
 ]
 
 export const Routes: FC = () => (
