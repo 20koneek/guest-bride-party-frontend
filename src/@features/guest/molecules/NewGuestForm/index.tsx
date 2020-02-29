@@ -30,7 +30,7 @@ export const NewGuestForm: FC<Props> = ({ onSubmit, defaultValues, loading }) =>
                 </Button>
 
                 {loading && (
-                    <LinearProgress style={{ margin: '10px 0' }}/>
+                    <LinearProgress/>
                 )}
             </Column>
         </form>

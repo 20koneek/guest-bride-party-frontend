@@ -3,12 +3,12 @@ import {
     Mutation,
     MutationCreateGuestArgs,
 } from '../../../../types/graphql.d'
-import {  createGuestMutation } from '@api'
-
-// export const useProductQuery = (id: string) => (
-//   useQuery<Pick<Query, 'product'>, QueryRetailerArgs>(productQuery, { variables: { id } })
-// )
+import { addCardMutation, createGuestMutation } from '@api'
 
 export const useCreateGuestMutation = () => (
     useMutation<Pick<Mutation, 'createGuest'>, MutationCreateGuestArgs>(createGuestMutation)
+)
+
+export const useAddCardMutation = () => (
+    useMutation<Pick<Mutation, 'addCard'>, MutationCreateGuestArgs>(addCardMutation)
 )

@@ -1,11 +1,13 @@
 import React from 'react'
-import { NewGuestPage } from './pages'
+import { AddCardPage, NewGuestPage } from './pages'
 
 export enum Routes {
-  // New = 'guest/new',
-  New = '/',
+    // New = 'guest/new',
+    New = '/',
+    AddCard = '/guest/add-card'
 }
 
 export const routes = [
-  <NewGuestPage key={Routes.New} path={Routes.New}/>,
+    <NewGuestPage key={Routes.New} path={Routes.New}/>,
+    <AddCardPage key={Routes.AddCard} path={Routes.AddCard}/>,
 ]
