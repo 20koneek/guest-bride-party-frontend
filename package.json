@@ -10,8 +10,8 @@
     "gen": "graphql-codegen --config codegen.yml"
   },
   "engines": {
-    "node": "13.9.0",
-    "yarn": "1.21.1"
+    "node": ">=13.8.0",
+    "yarn": ">=1.21.1"
   },
   "browserslist": [
     ">1%",
