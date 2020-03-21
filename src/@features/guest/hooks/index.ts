@@ -1,9 +1,13 @@
-import { useMutation } from '@apollo/react-hooks'
+import { useMutation, useQuery } from '@apollo/react-hooks'
 import {
     Mutation,
-    MutationCreateGuestArgs,
+    MutationCreateGuestArgs, Query,
 } from '../../../../types/graphql.d'
-import { addCardMutation, createGuestMutation } from '@api'
+import { addCardMutation, createGuestMutation, currentGuestQuery } from '@api'
+
+export const useCurrentGuestQuery = () => (
+    useQuery<Pick<Query, 'currentGuest'>>(currentGuestQuery)
+)
 
 export const useCreateGuestMutation = () => (
     useMutation<Pick<Mutation, 'createGuest'>, MutationCreateGuestArgs>(createGuestMutation)

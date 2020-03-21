@@ -3,7 +3,7 @@ import { AddCardPage, NewGuestPage } from './pages'
 
 export enum Routes {
     // New = 'guest/new',
-    New = '/',
+    New = 'guest/:weddingId',
     AddCard = '/guest/add-card'
 }
 

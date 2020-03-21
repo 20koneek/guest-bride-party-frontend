@@ -3,6 +3,8 @@ import { getOsEnv, getOsEnvOrNull } from './utils'
 /**
  * Environment variables
  */
+const measurementId = getOsEnvOrNull('REACT_APP_MEASUREMENT_ID')
+
 export default {
     node: process.env.NODE_ENV || 'development',
     isProduction: process.env.NODE_ENV === 'production',
@@ -23,6 +25,6 @@ export default {
         messagingSenderId: getOsEnv('REACT_APP_MESSAGING_SENDER_ID'),
         projectId: getOsEnv('REACT_APP_PROJECT_ID'),
         storageBucket: getOsEnv('REACT_APP_STORAGE_BUCKET'),
-        measurementId: getOsEnv('REACT_APP_MEASUREMENT_ID'),
+        ...(measurementId ? { measurementId } : {}),
     },
 }

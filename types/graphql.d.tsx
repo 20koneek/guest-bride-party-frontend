@@ -1,4 +1,3 @@
-export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string,
@@ -8,22 +7,42 @@ export type Scalars = {
     Float: number,
 };
 
-export type Guest = {
-    __typename?: 'Guest',
+export enum CardStatus {
+    NotSet = 'NotSet',
+    Added = 'Added',
+    Skipped = 'Skipped'
+}
+
+export type Contest = {
+    __typename?: 'Contest',
     id: Scalars['ID'],
     name: Scalars['String'],
 };
 
+export type ContestCondition = {
+    __typename?: 'ContestCondition',
+    id: Scalars['ID'],
+    name: Scalars['String'],
+};
+
+export type Guest = {
+    __typename?: 'Guest',
+    id: Scalars['ID'],
+    name: Scalars['String'],
+    cardStatus: CardStatus,
+};
+
 export type GuestInput = {
     name: Scalars['String'],
+    weddingId: Scalars['String'],
 };
 
 export type Mutation = {
     __typename?: 'Mutation',
     addCard: Scalars['String'],
     createGuest: Guest,
-    createProductUnit: ProductUnit,
-    updateProductUnit: ProductUnit,
+    pay: Payment,
+    createWedding: Wedding,
 };
 
 
@@ -32,49 +51,42 @@ export type MutationCreateGuestArgs = {
 };
 
 
-export type MutationCreateProductUnitArgs = {
-    input: ProductUnitInput
+export type MutationPayArgs = {
+    input: PaymentInput
 };
 
-
-export type MutationUpdateProductUnitArgs = {
-    input: ProductUnitInput,
-    id: Scalars['String']
-};
-
-/** Категория товарта. */
-export type ProductUnit = {
-    __typename?: 'ProductUnit',
-    /** id объекта */
+export type Payment = {
+    __typename?: 'Payment',
     id: Scalars['ID'],
-    name: Scalars['String'],
-    /** Список подкатегорий */
-    productUnits: Array<ProductUnit>,
-    parentProductUnit?: Maybe<ProductUnit>,
+    amount: Scalars['Int'],
+    status: Status,
+    contestCondition: ContestCondition,
 };
 
-/** Категория товарта. */
-export type ProductUnitInput = {
-    /** Check object. */
-    name: Scalars['String'],
-    /** Check object. */
-    parentProductUnitId?: Maybe<Scalars['String']>,
+export type PaymentInput = {
+    amount: Scalars['Float'],
+    contestConditionId: Scalars['String'],
 };
 
 export type Query = {
     __typename?: 'Query',
-    productUnits: Array<ProductUnit>,
-    productUnit?: Maybe<ProductUnit>,
+    currentContests: Array<Contest>,
+    currentGuest: Guest,
+    currentPayments: Array<Payment>,
+    currentWedding: Wedding,
 };
 
+export enum Status {
+    Init = 'Init',
+    Run = 'Run',
+    Failed = 'Failed',
+    Finished = 'Finished'
+}
 
-export type QueryProductUnitsArgs = {
-    id?: Maybe<Scalars['String']>
-};
-
-
-export type QueryProductUnitArgs = {
-    id: Scalars['String']
+export type Wedding = {
+    __typename?: 'Wedding',
+    id: Scalars['ID'],
+    contests: Array<Contest>,
 };
 
 

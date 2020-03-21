@@ -79,7 +79,7 @@
     "eslint-plugin-react": "7.17.0",
     "eslint-plugin-react-hooks": "2.3.0",
     "file-loader": "5.0.2",
-    "firebase": "7.5.2",
+    "firebase": "7.11.0",
     "fs-extra": "8.1.0",
     "graphql": "14.5.8",
     "graphql-tag": "2.10.1",

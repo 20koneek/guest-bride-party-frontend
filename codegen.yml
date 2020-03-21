@@ -1,9 +1,22 @@
 overwrite: true
 schema: "http://localhost:5000/graphql"
+config:
+    scalars:
+        Long: number
+        ULong: number
+        UInt: number
+        Short: number
+        Uri: string
+        UShort: number
+        Seconds: number
+        BigInt: number
+        Decimal: number
+        Byte: number
+        SByte: number
 generates:
-  types/graphql.d.tsx:
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo"
-      - "fragment-matcher"
+    types/graphql.d.tsx:
+        plugins:
+            - "typescript"
+            - "typescript-operations"
+            - "typescript-react-apollo"
+            - "fragment-matcher"

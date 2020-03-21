@@ -54,13 +54,9 @@ declare module '*.css' {
   export default classes
 }
 
-type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;
-
 interface UseStyle {
   className?: string
   style?: object
 }
 
 type Without<T, U> = Omit<T, keyof U>
-
-type Void<T> = (value: T) => void
