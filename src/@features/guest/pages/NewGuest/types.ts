@@ -1,4 +1,4 @@
 import { RouteComponentProps } from '@reach/router'
-import { WithGuestProps } from '@hoc/withGuest/types'
+import { WithLoadGuestProps } from '@hoc/withGuest/types'
 
-export type Props = RouteComponentProps<{ weddingId: string }> & WithGuestProps
+export type Props = RouteComponentProps<{ weddingId: string }> & WithLoadGuestProps

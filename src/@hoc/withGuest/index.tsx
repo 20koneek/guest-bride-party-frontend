@@ -1,9 +1,9 @@
 import React from 'react'
-import { WithGuest } from './types'
 import { Loading } from '@ui'
+import { WithLoadGuest } from './types'
 import { useCurrentGuestQuery } from '@features/guest/hooks'
 
-export const withGuest: WithGuest = (Component) => ({
+export const withLoadGuest: WithLoadGuest = (Component) => ({
     ...props
 }) => {
     const { data, loading, error } = useCurrentGuestQuery()

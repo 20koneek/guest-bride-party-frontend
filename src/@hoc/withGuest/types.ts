@@ -2,9 +2,9 @@ import { FC } from 'react'
 import { ApolloError } from 'apollo-client'
 import { Guest } from '../../types/graphql.d'
 
-export interface WithGuestProps {
+export interface WithLoadGuestProps {
     currentGuest?: Guest
     error?: ApolloError
 }
 
-export type WithGuest = <T>(component: FC<T & WithGuestProps>) => FC<T>
+export type WithLoadGuest = <T>(component: FC<T & WithLoadGuestProps>) => FC<T>
