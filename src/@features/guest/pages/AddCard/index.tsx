@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import { Props } from './types'
-import { New } from '../../templates'
-import { useAddCardMutation } from '../../hooks'
-import { Button } from '@material-ui/core'
+import { AddCardTemplate } from '../../templates'
+import { useAddCardMutation, useSkipCardMutation } from '../../hooks'
 
 export const AddCard: FC<Props> = () => {
-    const [createGuest, { loading }] = useAddCardMutation()
+    const [addCard, addCardMutation] = useAddCardMutation()
+    const [skipCard, skipCardMutation] = useSkipCardMutation()
 
-    const onClick = async () => {
-        const response = await createGuest()
+    const addCardOnClick = async () => {
+        const response = await addCard()
         const url = response?.data?.addCard
 
         if (url) {
@@ -16,16 +16,20 @@ export const AddCard: FC<Props> = () => {
         }
     }
 
+    const skipCardOnClick = async () => {
+        await skipCard()
+    }
+
     return (
-        <New>
-            <Button
-                variant="contained"
-                color="primary"
-                disabled={loading}
-                onClick={onClick}
-            >
-                Добавить карту
-            </Button>
-        </New>
+        <AddCardTemplate
+            addCard={{
+                onClick: addCardOnClick,
+                disabled: addCardMutation.loading,
+            }}
+            skipCard={{
+                onClick: skipCardOnClick,
+                disabled: skipCardMutation.loading,
+            }}
+        />
     )
 }

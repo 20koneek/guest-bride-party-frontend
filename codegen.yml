@@ -14,7 +14,7 @@ config:
         Byte: number
         SByte: number
 generates:
-    types/graphql.d.tsx:
+    src/types/graphql.d.tsx:
         plugins:
             - "typescript"
             - "typescript-operations"

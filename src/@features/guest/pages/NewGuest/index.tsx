@@ -1,12 +1,11 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { Props } from './types'
 import { New } from '../../templates'
 import { NewGuestForm } from '../../molecules/NewGuestForm'
 import { FormValues } from '../../molecules/NewGuestForm/types'
-import { useCreateGuestMutation, useCurrentGuestQuery } from '../../hooks'
+import { useCreateGuestMutation } from '../../hooks'
 
-export const NewGuest: FC<Props> = ({ navigate, weddingId }) => {
-    const { data, loading, error } = useCurrentGuestQuery()
+export const NewGuest: FC<Props> = ({ navigate, weddingId, error }) => {
     const [createGuest, mutation] = useCreateGuestMutation()
 
     const onSubmit = async (input: FormValues) => {
@@ -19,16 +18,9 @@ export const NewGuest: FC<Props> = ({ navigate, weddingId }) => {
                     },
                 },
             })
-
-            await navigate?.(`/guest/add-card`)
+            // await navigate?.(Routes.AddCard)
         }
     }
-
-    useEffect(() => {
-        if (data?.currentGuest) {
-            navigate?.('/guest')
-        }
-    }, [data, loading, error])
 
     return (
         <New>

@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { FirebaseContextProps } from '@lib/firebaseContext/types'
-import { Guest } from '../../../types/graphql.d'
+import { ApolloError } from 'apollo-client'
+import { Guest } from '../../types/graphql.d'
 
 export interface WithGuestProps {
-    currentGuest: Guest
+    currentGuest?: Guest
+    error?: ApolloError
 }
 
-export type WithGuest = <T extends FirebaseContextProps>(component: FC<Without<T, FirebaseContextProps> & WithGuestProps>) => FC<T>
-
+export type WithGuest = <T>(component: FC<T & WithGuestProps>) => FC<T>

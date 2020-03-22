@@ -1,0 +1,6 @@
+@import '../../../../@styles/index.css';
+
+.addCardTemplate {
+    width: 100%;
+    max-width: 400px;
+}

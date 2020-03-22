@@ -40,6 +40,7 @@ export type GuestInput = {
 export type Mutation = {
     __typename?: 'Mutation',
     addCard: Scalars['String'],
+    skipCard: Guest,
     createGuest: Guest,
     pay: Payment,
     createWedding: Wedding,

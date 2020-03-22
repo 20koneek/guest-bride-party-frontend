@@ -5,6 +5,7 @@ export const currentGuestQuery = gql`
         currentGuest {
             id
             name
+            cardStatus
         }
     }
 `
@@ -21,4 +22,14 @@ export const addCardMutation = gql`
   mutation AddCard {
     addCard
   }
+`
+
+export const skipCardMutation = gql`
+    mutation SkipCard {
+        skipCard {
+            id
+            name
+            cardStatus
+        }
+    }
 `

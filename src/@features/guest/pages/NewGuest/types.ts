@@ -1,4 +1,4 @@
 import { RouteComponentProps } from '@reach/router'
-import { FirebaseContextProps } from '@lib/firebaseContext/types'
+import { WithGuestProps } from '@hoc/withGuest/types'
 
-export type Props = RouteComponentProps<{ weddingId: string }> & FirebaseContextProps
+export type Props = RouteComponentProps<{ weddingId: string }> & WithGuestProps

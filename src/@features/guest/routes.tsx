@@ -2,8 +2,8 @@ import React from 'react'
 import { AddCardPage, NewGuestPage } from './pages'
 
 export enum Routes {
-    // New = 'guest/new',
-    New = 'guest/:weddingId',
+    Index = '/guest',
+    New = '/guest/:weddingId',
     AddCard = '/guest/add-card'
 }
 
