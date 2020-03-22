@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
 import { Props } from './types'
-import { Button, Column } from '@ui'
+import { Button, Column, PrimaryText } from '@ui'
 import styles from './styles.css'
 import { New } from '../New'
 
-export const AddCardTemplate: FC<Props> = ({ addCard, skipCard }) => (
+export const AddCardTemplate: FC<Props> = ({ guestName, addCard, skipCard }) => (
     <New>
         <Column className={styles.addCardTemplate}>
+            <PrimaryText>Привет {guestName}, Вы можете добавить карту сейча для удобной оплаты.</PrimaryText>
+
             <Button
                 variant="contained"
                 color="primary"
@@ -15,11 +17,7 @@ export const AddCardTemplate: FC<Props> = ({ addCard, skipCard }) => (
                 Добавить карту
             </Button>
 
-            <Button
-                variant="contained"
-                color="primary"
-                {...skipCard}
-            >
+            <Button {...skipCard}>
                 Пропустить
             </Button>
         </Column>

@@ -3,7 +3,7 @@ import { Props } from './types'
 import { AddCardTemplate } from '../../templates'
 import { useAddCardMutation, useSkipCardMutation } from '../../hooks'
 
-export const AddCard: FC<Props> = () => {
+export const AddCard: FC<Props> = ({ currentGuest }) => {
     const [addCard, addCardMutation] = useAddCardMutation()
     const [skipCard, skipCardMutation] = useSkipCardMutation()
 
@@ -22,6 +22,7 @@ export const AddCard: FC<Props> = () => {
 
     return (
         <AddCardTemplate
+            guestName={currentGuest?.name ?? ''}
             addCard={{
                 onClick: addCardOnClick,
                 disabled: addCardMutation.loading,

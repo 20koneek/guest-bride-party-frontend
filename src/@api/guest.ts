@@ -11,11 +11,13 @@ export const currentGuestQuery = gql`
 `
 
 export const createGuestMutation = gql`
-  mutation CreateGuest($input: GuestInput!) {
-    createGuest(input: $input) {
-      name
+    mutation CreateGuest($input: GuestInput!) {
+        createGuest(input: $input) {
+            id
+            name
+            cardStatus
+        }
     }
-  }
 `
 
 export const addCardMutation = gql`

@@ -1,5 +1,4 @@
 import { RouteComponentProps } from '@reach/router'
+import { WithGuestProps } from '@hoc/withGuest/types'
 
-export interface Props extends RouteComponentProps {
-}
-
+export type Props = RouteComponentProps & WithGuestProps

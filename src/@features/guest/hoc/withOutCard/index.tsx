@@ -7,9 +7,9 @@ import { Routes } from '../../routes'
 export const withOutCard: WithOutCard = (Component) => (props) => {
     if (
         // @ts-ignore
-        props?.currentGuest.cardStatus &&
+        props.currentGuest?.cardStatus &&
         // @ts-ignore
-        props?.currentGuest.cardStatus !== CardStatus.NotSet
+        props.currentGuest?.cardStatus !== CardStatus.NotSet
     ) {
         navigate(Routes.Index)
         return null
