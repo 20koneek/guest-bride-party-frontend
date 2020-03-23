@@ -26,9 +26,9 @@ export const addCardMutation = gql`
   }
 `
 
-export const skipCardMutation = gql`
-    mutation SkipCard {
-        skipCard {
+export const updateCardMutation = gql`
+    mutation UpdateCard($input: CardStatus!) {
+        updateCard(input: $input) {
             id
             name
             cardStatus

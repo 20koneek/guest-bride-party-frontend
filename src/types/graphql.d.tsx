@@ -9,7 +9,8 @@ export type Scalars = {
 
 export enum CardStatus {
     NotSet = 'NotSet',
-    Added = 'Added',
+    Confirmed = 'Confirmed',
+    Failed = 'Failed',
     Skipped = 'Skipped'
 }
 
@@ -40,10 +41,15 @@ export type GuestInput = {
 export type Mutation = {
     __typename?: 'Mutation',
     addCard: Scalars['String'],
-    skipCard: Guest,
+    updateCard: Guest,
     createGuest: Guest,
     pay: Payment,
     createWedding: Wedding,
+};
+
+
+export type MutationUpdateCardArgs = {
+    input: CardStatus
 };
 
 
