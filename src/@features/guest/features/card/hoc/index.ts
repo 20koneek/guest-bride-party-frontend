@@ -1,0 +1,1 @@
+export { withOutCard } from './withOutCard'
