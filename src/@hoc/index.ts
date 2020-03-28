@@ -1,2 +1,2 @@
 export { withFirebase } from './withFirebase'
-export { withLoadGuest } from './withGuest'
+export { withLoadGuest } from './withLoadGuest'

@@ -1,1 +1,4 @@
-export { routes as cartsRoutes } from './routes'
+export {
+    Router as CardRouter,
+    Routes as CardRoutes,
+} from './routes'

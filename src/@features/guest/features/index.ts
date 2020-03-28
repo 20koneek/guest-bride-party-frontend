@@ -1,2 +1,1 @@
-export { cartsRoutes } from './card'
-export { contestsRoutes} from './contest'
+export { CardRouter, CardRoutes } from './card'

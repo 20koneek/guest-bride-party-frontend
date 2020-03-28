@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Props } from './types'
 
-export const Guests: FC<Props> = ({ children }) => (
+export const Guest: FC<Props> = ({ children }) => (
     <div>
         <div>Guests</div>
 

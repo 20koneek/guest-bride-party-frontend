@@ -4,13 +4,13 @@ import { Theme } from '@ui'
 import apolloClient from '@lib/apolloClient'
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks'
 import { FirebaseProvider } from '@lib/firebaseContext'
-import { Routes } from './routes'
+import { BaseRouter } from './routes'
 
 const App: React.FC = () => (
     <Theme>
         <ApolloHooksProvider client={apolloClient}>
             <FirebaseProvider>
-                <Routes/>
+                <BaseRouter/>
             </FirebaseProvider>
         </ApolloHooksProvider>
     </Theme>

@@ -1,12 +1,15 @@
-import React from 'react'
-import { AddCardPage } from './pages'
+import React, { FC, Fragment } from 'react'
+import { RouteComponentProps } from '@reach/router'
+import { NewCardPage } from './pages'
 
 export enum Routes {
-    AddCard = 'card',
-    UpdateCard = 'update-card/:id',
+    New = 'new',
+    Update = ':id',
 }
 
-export const routes = [
-    <AddCardPage key={Routes.AddCard} path={Routes.AddCard}/>,
-    // <UpdateCardPage key={Routes.UpdateCard} path={Routes.UpdateCard}/>,
-]
+export const Router: FC<RouteComponentProps> = () => (
+    <Fragment>
+        <NewCardPage path={Routes.New}/>
+    </Fragment>
+)
+// <UpdateCardPage path={Routes.UpdateCard}/>,

@@ -1,1 +1,4 @@
-export { routes as guestRoutes } from './routes'
+export {
+    Router as GuestRouter,
+    Routes as GuestRoutes,
+} from './routes'

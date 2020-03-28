@@ -11,10 +11,11 @@ export const withOutCard: WithOutCard = (Component) => (props) => {
         // @ts-ignore
         props.currentGuest?.cardStatus !== CardStatus.NotSet
     ) {
+        console.log(props)
         navigate(Routes.Index)
         return null
     }
-
+    console.log(props)
     return (
         <Component
             {...props}

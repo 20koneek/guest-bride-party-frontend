@@ -1,13 +1,10 @@
 import React, { FC } from 'react'
 import { Router } from '@reach/router'
-import { guestRoutes } from '@features/guest'
+import { GuestRouter } from '@features'
+import { Routes } from './types'
 
-const routes: React.ReactElement[] = [
-  ...guestRoutes,
-]
-
-export const Routes: FC = () => (
-  <Router>
-    {routes}
-  </Router>
+export const BaseRouter: FC = () => (
+    <Router>
+        <GuestRouter path={Routes.Guest}/>
+    </Router>
 )

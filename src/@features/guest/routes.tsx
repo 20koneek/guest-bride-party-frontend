@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { FC, Fragment } from 'react'
 import { GuestsPage, NewGuestPage, NotAuthPage } from './pages'
-import { cartsRoutes } from './features/card'
+// import { cartsRoutes } from './features/card'
+import { RouteComponentProps } from '@reach/router'
 
 export enum Routes {
-    Index = 'guest',
-    New = 'guest/:weddingId',
-    NotAuth = 'guest/not-auth'
+    Index = '/',
+    New = ':weddingId',
+    NotAuth = 'not-auth'
 }
 
-export const routes = [
-    <GuestsPage key={Routes.Index} path={Routes.Index}>
-        {cartsRoutes}
-    </GuestsPage>,
-    <NewGuestPage key={Routes.New} path={Routes.New}/>,
-    <NotAuthPage key={Routes.NotAuth} path={Routes.NotAuth}/>,
-]
+export const Router: FC<RouteComponentProps> = () => (
+    <Fragment>
+        <GuestsPage path={Routes.Index}>
+
+        </GuestsPage>
+        <NewGuestPage path={Routes.New}/>
+        <NotAuthPage path={Routes.NotAuth}/>
+    </Fragment>
+)
