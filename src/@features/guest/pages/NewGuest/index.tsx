@@ -4,7 +4,6 @@ import { New } from '../../templates'
 import { NewGuestForm } from '../../molecules/NewGuestForm'
 import { FormValues } from '../../molecules/NewGuestForm/types'
 import { useCreateGuestMutation } from '../../hooks'
-import { CardRoutes } from '../../features/card'
 
 export const NewGuest: FC<Props> = ({ navigate, weddingId, error }) => {
     const [createGuest, mutation] = useCreateGuestMutation()
@@ -20,7 +19,7 @@ export const NewGuest: FC<Props> = ({ navigate, weddingId, error }) => {
                 },
             })
 
-            await navigate?.(CardRoutes.New)
+            // await navigate?.()
         }
     }
 

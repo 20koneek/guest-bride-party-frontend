@@ -1,1 +1,1 @@
-export { GuestRouter, GuestRoutes } from './guest'
+export * from './guest'

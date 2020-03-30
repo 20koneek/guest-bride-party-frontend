@@ -1,10 +1,19 @@
 import React, { FC } from 'react'
-import { Router } from '@reach/router'
-import { GuestRouter } from '@features'
-import { Routes } from './types'
+import { RouteComponentProps, Router } from '@reach/router'
+import { GuestsPage, NotAuthPage, NewGuestPage, NewCardPage } from '@features'
+
+const NotFound: FC<RouteComponentProps> = () => <p>Sorry, nothing here</p>
 
 export const BaseRouter: FC = () => (
     <Router>
-        <GuestRouter path={Routes.Guest}/>
+        <NotFound default/>
+
+        <GuestsPage path='guest'>
+            <NewCardPage path='card/new'/>
+        </GuestsPage>
+        <GuestsPage path='guest'/>
+        <NewGuestPage path='guest/:weddingId'/>
+
+        <NotAuthPage path='guest/not-auth'/>
     </Router>
 )

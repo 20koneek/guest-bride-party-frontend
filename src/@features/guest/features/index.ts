@@ -1,1 +1,1 @@
-export { CardRouter, CardRoutes } from './card'
+export * from './card'

@@ -1,19 +1,18 @@
 import React from 'react'
 import { WithOutGuest } from './types'
-import { Routes as CardRoutes } from '../../features/card/routes'
+import { Guest } from '../../../../types/graphql.d'
 
 export const withOutGuest: WithOutGuest = (Component) => (props) => {
     // @ts-ignore
-    if (props?.currentGuest) {
+    const currentGuest: Guest = props?.currentGuest
+
+    if (currentGuest) {
         // @ts-ignore
-        props?.navigate(CardRoutes.AddCard)
+        // props?.navigate(`/guest/card/${CardRoutes.New}`)
         return null
     }
+
     return (
-        <Component
-            {...props}
-            // @ts-ignore
-            currentGuest={props.currentGuest}
-        />
+        <Component {...props}/>
     )
 }
