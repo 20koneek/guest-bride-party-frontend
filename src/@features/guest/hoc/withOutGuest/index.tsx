@@ -8,7 +8,7 @@ export const withOutGuest: WithOutGuest = (Component) => (props) => {
 
     if (currentGuest) {
         // @ts-ignore
-        // props?.navigate(`/guest/card/${CardRoutes.New}`)
+        props?.navigate(`/guest/card/new`)
         return null
     }
 

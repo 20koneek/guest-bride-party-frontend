@@ -9,11 +9,12 @@ export const BaseRouter: FC = () => (
         <NotFound default/>
 
         <GuestsPage path='guest'>
-            <NewCardPage path='card/new'/>
+
         </GuestsPage>
         <GuestsPage path='guest'/>
         <NewGuestPage path='guest/:weddingId'/>
-
         <NotAuthPage path='guest/not-auth'/>
+
+        <NewCardPage path='guest/card/new'/>
     </Router>
 )
