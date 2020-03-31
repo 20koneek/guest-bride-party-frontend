@@ -8,7 +8,7 @@ export const withOutCard: WithOutCard = (Component) => (props) => {
     const cardStatus: CardStatus = props.currentGuest?.cardStatus
 
     if (cardStatus && cardStatus !== CardStatus.NotSet) {
-        navigate('./')
+        navigate('/guest')
         return null
     }
 

@@ -2,15 +2,20 @@ import React, { FC, useEffect } from 'react'
 import { Props } from './types'
 import { useUpdateCardMutation } from '../../hooks'
 import { Loading } from '@ui/atoms/Loading'
+import { CardStatus } from '../../../../../../types/graphql.d'
+import { parse } from 'query-string'
 
-export const UpdateCard: FC<Props> = ({ cardStatus }) => {
+export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
     const [updateCard, updateCardMutation] = useUpdateCardMutation()
 
     useEffect(() => {
-        if (cardStatus) {
-            updateCard({ variables: { input: cardStatus } })
+        if (id) {
+            const { status } = parse(location?.search ?? '') as { status: CardStatus }
+
+            updateCard({ variables: { id, status } })
+                .then(() => navigate?.('/guest'))
         }
-    }, [cardStatus])
+    }, [id])
 
     return (
         <Loading

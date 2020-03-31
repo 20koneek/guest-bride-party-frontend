@@ -1,10 +1,10 @@
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-    ID: string,
-    String: string,
-    Boolean: boolean,
-    Int: number,
-    Float: number,
+    ID: string;
+    String: string;
+    Boolean: boolean;
+    Int: number;
+    Float: number;
 };
 
 export enum CardStatus {
@@ -15,72 +15,81 @@ export enum CardStatus {
 }
 
 export type Contest = {
-    __typename?: 'Contest',
-    id: Scalars['ID'],
-    name: Scalars['String'],
+    __typename?: 'Contest';
+    id: Scalars['ID'];
+    name: Scalars['String'];
 };
 
 export type ContestCondition = {
-    __typename?: 'ContestCondition',
-    id: Scalars['ID'],
-    name: Scalars['String'],
+    __typename?: 'ContestCondition';
+    id: Scalars['ID'];
+    name: Scalars['String'];
 };
 
 export type Guest = {
-    __typename?: 'Guest',
-    id: Scalars['ID'],
-    name: Scalars['String'],
-    cardStatus: CardStatus,
+    __typename?: 'Guest';
+    id: Scalars['ID'];
+    name: Scalars['String'];
+    cardStatus: CardStatus;
 };
 
 export type GuestInput = {
-    name: Scalars['String'],
-    weddingId: Scalars['String'],
+    name: Scalars['String'];
+    weddingId: Scalars['String'];
 };
 
 export type Mutation = {
-    __typename?: 'Mutation',
-    addCard: Scalars['String'],
-    updateCard: Guest,
-    createGuest: Guest,
-    pay: Payment,
-    createWedding: Wedding,
+    __typename?: 'Mutation';
+    addCard: Scalars['String'];
+    skipCard: Guest;
+    updateCard: Guest;
+    createGuest: Guest;
+    createPayment: Payment;
+    updatePaymentStatus: Payment;
+    createWedding: Wedding;
 };
 
 
 export type MutationUpdateCardArgs = {
-    input: CardStatus
+    status: CardStatus;
+    id: Scalars['String'];
 };
 
 
 export type MutationCreateGuestArgs = {
-    input: GuestInput
+    input: GuestInput;
 };
 
 
-export type MutationPayArgs = {
-    input: PaymentInput
+export type MutationCreatePaymentArgs = {
+    input: PaymentInput;
+};
+
+
+export type MutationUpdatePaymentStatusArgs = {
+    status: Status;
+    id: Scalars['String'];
 };
 
 export type Payment = {
-    __typename?: 'Payment',
-    id: Scalars['ID'],
-    amount: Scalars['Int'],
-    status: Status,
-    contestCondition: ContestCondition,
+    __typename?: 'Payment';
+    id: Scalars['ID'];
+    amount: Scalars['Int'];
+    status: Status;
+    contestCondition: ContestCondition;
 };
 
 export type PaymentInput = {
-    amount: Scalars['Float'],
-    contestConditionId: Scalars['String'],
+    amount: Scalars['Float'];
+    contestConditionId: Scalars['String'];
 };
 
 export type Query = {
-    __typename?: 'Query',
-    currentContests: Array<Contest>,
-    currentGuest: Guest,
-    currentPayments: Array<Payment>,
-    currentWedding: Wedding,
+    __typename?: 'Query';
+    currentContests: Array<Contest>;
+    currentGuest: Guest;
+    currentPayments: Array<Payment>;
+    currentWedding: Wedding;
 };
 
 export enum Status {
@@ -91,9 +100,9 @@ export enum Status {
 }
 
 export type Wedding = {
-    __typename?: 'Wedding',
-    id: Scalars['ID'],
-    contests: Array<Contest>,
+    __typename?: 'Wedding';
+    id: Scalars['ID'];
+    contests: Array<Contest>;
 };
 
 

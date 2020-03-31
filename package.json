@@ -101,6 +101,7 @@
     "postcss-url": "8.0.0",
     "prettier": "2.0.2",
     "quagga": "0.12.1",
+    "query-string": "6.11.1",
     "react": "16.13.1",
     "react-app-polyfill": "1.0.6",
     "react-chartjs-2": "2.9.0",
