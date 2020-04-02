@@ -1,1 +1,1 @@
-export { routes as contestsRoutes } from './routes'
+export { ContestsPage } from './pages'
