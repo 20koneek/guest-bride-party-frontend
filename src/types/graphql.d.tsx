@@ -1,4 +1,3 @@
-export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string;
@@ -89,9 +88,15 @@ export type PaymentInput = {
 export type Query = {
     __typename?: 'Query';
     currentContests: Array<Contest>;
+    currentContest: Contest;
     currentGuest: Guest;
     currentPayments: Array<Payment>;
     currentWedding: Wedding;
+};
+
+
+export type QueryCurrentContestArgs = {
+    id: Scalars['String'];
 };
 
 export enum Status {
