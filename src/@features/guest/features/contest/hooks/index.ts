@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 import { Query } from '../../../../../types/graphql.d'
 import { currentContestQuery, currentWeddingQuery } from '@api'
 
