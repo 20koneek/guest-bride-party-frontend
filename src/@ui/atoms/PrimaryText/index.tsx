@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
-import Typography from '@material-ui/core/Typography'
-import { WithStyles, withStyles } from '@material-ui/core/styles'
+import { Typography, TypographyProps } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-const Component: FC<WithStyles<'root'>> = ({
+const Component: FC<TypographyProps> = ({
     children,
-    classes,
+    variant,
+    ...props
 }) => (
     <Typography
-        variant="h6"
-        className={classes.root}
+        variant={variant ?? 'h6'}
+        {...props}
     >
         {children}
     </Typography>

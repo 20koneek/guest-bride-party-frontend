@@ -6,15 +6,18 @@
     height: 100%;
     border-radius: 16px;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-    grid:
-        'content' calc(100% - 67px)
-        'actions' auto;
+    grid: 'content tabs' 1fr 'actions tabs' auto
+        / 1fr auto;
 }
 
-.cardContent  {
+.cardContent {
     grid-area: content;
 }
 
 .cardActions {
     grid-area: actions;
+}
+
+.cardTabs {
+    grid-area: tabs;
 }

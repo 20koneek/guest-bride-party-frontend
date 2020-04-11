@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { Props } from './types'
 import { useContestQuery } from '../../hooks'
 import {
-    Container,
     Hidden,
     List,
     ListItem,
@@ -20,24 +19,22 @@ export const Contest: FC<Props> = ({ id, navigate }) => {
             loading={loading}
             error={error}
         >
-            <Container>
-                <Hidden smUp>
-                    <ArrowBackIos onClick={() => navigate?.('../')}/>
-                </Hidden>
+            <Hidden smUp>
+                <ArrowBackIos onClick={() => navigate?.('../')}/>
+            </Hidden>
 
-                <Typography variant="h4" color='primary'>
-                    {data?.currentContest.name}
-                </Typography>
+            <Typography variant="h4" color='primary'>
+                {data?.currentContest.name}
+            </Typography>
 
 
-                <List>
-                    {data?.currentContest.conditions.map(({ id, name }) => (
-                        <ListItem key={id} onClick={() => navigate?.(`conditions/${id}/payments/new`)}>
-                            <ListItemText primary={name}/>
-                        </ListItem>
-                    ))}
-                </List>
-            </Container>
+            <List>
+                {data?.currentContest.conditions.map(({ id, name }) => (
+                    <ListItem key={id} onClick={() => navigate?.(`conditions/${id}/payments/new`)}>
+                        <ListItemText primary={name}/>
+                    </ListItem>
+                ))}
+            </List>
         </Loading>
     )
 }

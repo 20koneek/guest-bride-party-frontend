@@ -5,7 +5,7 @@ import { NewGuestForm } from '../../molecules/NewGuestForm'
 import { FormValues } from '../../molecules/NewGuestForm/types'
 import { useCreateGuestMutation } from '../../hooks'
 
-export const NewGuest: FC<Props> = ({ navigate, weddingId, error }) => {
+export const NewGuest: FC<Props> = ({ weddingId, error }) => {
     const [createGuest, mutation] = useCreateGuestMutation()
 
     const onSubmit = async (input: FormValues) => {
@@ -18,8 +18,6 @@ export const NewGuest: FC<Props> = ({ navigate, weddingId, error }) => {
                     },
                 },
             })
-
-            // await navigate?.()
         }
     }
 
