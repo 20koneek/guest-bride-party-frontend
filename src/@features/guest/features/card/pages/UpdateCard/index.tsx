@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { Props } from './types'
 import { useUpdateCardMutation } from '../../hooks'
-import { Loading } from '@ui/atoms/Loading'
+import { Loading } from '@ui'
 import { CardStatus } from '../../../../../../types/graphql.d'
 import { parse } from 'query-string'
 

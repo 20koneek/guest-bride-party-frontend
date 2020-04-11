@@ -5,7 +5,7 @@ import {
     ListItem,
     ListItemText,
 } from '@material-ui/core'
-import { Loading } from '@ui/atoms'
+import { Loading } from '@ui'
 import { useContestQuery } from '../../../../hooks'
 
 export const Conditions: FC<Props> = ({ contestId, navigate }) => {
@@ -18,7 +18,7 @@ export const Conditions: FC<Props> = ({ contestId, navigate }) => {
         >
             <List>
                 {data?.currentContest.conditions.map(({ id, name }) => (
-                    <ListItem key={id} onClick={() => navigate?.(`conditions/${id}/payments/new`)}>
+                    <ListItem key={id} onClick={() => navigate?.(`${id}/payments/new`)}>
                         <ListItemText primary={name}/>
                     </ListItem>
                 ))}

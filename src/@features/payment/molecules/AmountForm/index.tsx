@@ -9,12 +9,14 @@ export const AmountForm: FCG = ({
     control,
     name,
     ...props
-}) => (
-    <Controller
-        as={<AmountInput/>}
-        name={name}
-        control={control}
-        disabled={control.formState.isSubmitting}
-        {...props}
-    />
-)
+}) => {
+    console.log(control.formState)
+    return (
+        <Controller
+            as={<AmountInput/>}
+            name={name}
+            control={control}
+            {...props}
+        />
+    )
+}

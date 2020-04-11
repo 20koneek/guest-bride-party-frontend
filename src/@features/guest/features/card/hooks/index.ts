@@ -1,19 +1,6 @@
-import { useMutation, useQuery } from '@apollo/client'
-import {
-    Mutation,
-    MutationCreateGuestArgs,
-    MutationUpdateCardArgs,
-    Query,
-} from '../../../../../types/graphql.d'
-import { addCardMutation, createGuestMutation, currentGuestQuery, updateCardMutation } from '@api'
-
-export const useCurrentGuestQuery = () => (
-    useQuery<Pick<Query, 'currentGuest'>>(currentGuestQuery)
-)
-
-export const useCreateGuestMutation = () => (
-    useMutation<Pick<Mutation, 'createGuest'>, MutationCreateGuestArgs>(createGuestMutation)
-)
+import { useMutation } from '@apollo/client'
+import { Mutation, MutationUpdateCardArgs } from '../../../../../types/graphql.d'
+import { addCardMutation, updateCardMutation } from '@api'
 
 export const useAddCardMutation = () => (
     useMutation<Pick<Mutation, 'addCard'>>(addCardMutation)

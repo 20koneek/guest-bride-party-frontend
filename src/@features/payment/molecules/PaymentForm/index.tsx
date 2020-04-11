@@ -4,8 +4,9 @@ import { AmountForm } from '../AmountForm'
 import { useForm } from 'react-hook-form'
 import { Column } from '@ui'
 import { SubmitButton } from '../../atoms/'
+import { LinearProgress } from '@material-ui/core'
 
-export const PaymentForm: FC<Props> = ({ onChange, values }) => {
+export const PaymentForm: FC<Props> = ({ onChange, values, loading }) => {
     const { control, handleSubmit } = useForm<PaymentValues>({ defaultValues: { amount: values[0] } })
     const onSubmit = handleSubmit(({ amount }) => onChange(amount))
 
@@ -16,9 +17,14 @@ export const PaymentForm: FC<Props> = ({ onChange, values }) => {
                     name="amount"
                     values={values}
                     control={control}
+                    disabled={loading}
                 />
 
-                <SubmitButton>Оплатить</SubmitButton>
+                <SubmitButton disabled={loading}>
+                    Оплатить
+                </SubmitButton>
+
+                <LinearProgress hidden={!loading}/>
             </Column>
         </form>
     )

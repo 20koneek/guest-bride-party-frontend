@@ -3,6 +3,7 @@ export interface PaymentValues {
 }
 
 export interface Props {
+    loading: boolean
     values: number[]
     onChange: (value: number) => void
 }

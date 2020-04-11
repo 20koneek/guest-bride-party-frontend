@@ -1,11 +1,18 @@
 import React, { FC } from 'react'
 import { Props } from './types'
+import { useConditionQuery } from '../../hooks'
+import { Loading } from '@ui'
 
-export const Condition: FC<Props> = ({ conditionId, contestId, children, ...props }) => {
+export const Condition: FC<Props> = ({ conditionId, contestId, children }) => {
+    const { data, loading, error } = useConditionQuery({ contestId: contestId ?? '', conditionId: conditionId ?? '' })
+
     return (
-        <div>
-            contest show {contestId}
+        <Loading
+            loading={loading}
+            error={error}
+        >
+            {data.condition?.name}
             {children}
-        </div>
+        </Loading>
     )
 }

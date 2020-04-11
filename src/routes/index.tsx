@@ -22,7 +22,7 @@ export const BaseRouter: FC = () => (
         <GuestsPage path='guest'>
             <ContestsPage path='/'/>
             <ContestPage path='contests/:contestId'>
-                <ConditionsPage path='/'/>
+                <ConditionsPage path='conditions'/>
                 <ConditionPage path='conditions/:conditionId'>
                     <NewPaymentPage path='payments/new'/>
                 </ConditionPage>

@@ -8,12 +8,7 @@ export const currentWeddingQuery = gql`
             contests {
                 id
                 name
-                conditions {
-                    id
-                    name
-                }
             }
         }
     }
 `
-

@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
+import { ArrowBackIos } from '@material-ui/icons'
+import { Hidden, Typography } from '@material-ui/core'
+import { Loading } from '@ui'
 import { Props } from './types'
 import { useContestQuery } from '../../hooks'
-import { Hidden, Typography } from '@material-ui/core'
-import { Loading } from '@ui/atoms'
-import { ArrowBackIos } from '@material-ui/icons'
 
 export const Contest: FC<Props> = ({ contestId, navigate, children }) => {
     const { data, loading, error } = useContestQuery(contestId ?? '')

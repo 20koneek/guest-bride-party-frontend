@@ -7,12 +7,19 @@ export type Scalars = {
     Float: number;
 };
 
-export enum CardStatus {
-    NotSet = 'NotSet',
-    Confirmed = 'Confirmed',
-    Failed = 'Failed',
-    Skipped = 'Skipped'
-}
+export type Query = {
+    __typename?: 'Query';
+    currentContests: Array<Contest>;
+    currentContest: Contest;
+    currentGuest: Guest;
+    currentPayments: Array<Payment>;
+    currentWedding: Wedding;
+};
+
+
+export type QueryCurrentContestArgs = {
+    id: Scalars['String'];
+};
 
 export type Contest = {
     __typename?: 'Contest';
@@ -34,9 +41,33 @@ export type Guest = {
     cardStatus: CardStatus;
 };
 
-export type GuestInput = {
+export enum CardStatus {
+    NotSet = 'NotSet',
+    Confirmed = 'Confirmed',
+    Failed = 'Failed',
+    Skipped = 'Skipped'
+}
+
+export type Payment = {
+    __typename?: 'Payment';
+    id: Scalars['ID'];
+    amount: Scalars['Int'];
+    status: Status;
+    contestCondition: ContestCondition;
+};
+
+export enum Status {
+    Init = 'Init',
+    Run = 'Run',
+    Failed = 'Failed',
+    Finished = 'Finished'
+}
+
+export type Wedding = {
+    __typename?: 'Wedding';
+    id: Scalars['ID'];
     name: Scalars['String'];
-    weddingId: Scalars['String'];
+    contests: Array<Contest>;
 };
 
 export type Mutation = {
@@ -72,45 +103,14 @@ export type MutationUpdatePaymentStatusArgs = {
     id: Scalars['String'];
 };
 
-export type Payment = {
-    __typename?: 'Payment';
-    id: Scalars['ID'];
-    amount: Scalars['Int'];
-    status: Status;
-    contestCondition: ContestCondition;
+export type GuestInput = {
+    name: Scalars['String'];
+    weddingId: Scalars['String'];
 };
 
 export type PaymentInput = {
     amount: Scalars['Float'];
-    contestConditionId: Scalars['String'];
-};
-
-export type Query = {
-    __typename?: 'Query';
-    currentContests: Array<Contest>;
-    currentContest: Contest;
-    currentGuest: Guest;
-    currentPayments: Array<Payment>;
-    currentWedding: Wedding;
-};
-
-
-export type QueryCurrentContestArgs = {
-    id: Scalars['String'];
-};
-
-export enum Status {
-    Init = 'Init',
-    Run = 'Run',
-    Failed = 'Failed',
-    Finished = 'Finished'
-}
-
-export type Wedding = {
-    __typename?: 'Wedding';
-    id: Scalars['ID'];
-    name: Scalars['String'];
-    contests: Array<Contest>;
+    conditionId: Scalars['String'];
 };
 
 

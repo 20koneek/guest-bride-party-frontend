@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Props } from './types'
 import { useWeddingQuery } from '../../hooks'
 import { IconButton, Typography } from '@material-ui/core'
-import { Card, CardActions, CardContent, Cell, Grid, Loading } from '@ui/atoms'
+import { Card, CardActions, CardContent, Cell, Grid, Loading } from '@ui'
 import { FavoriteBorder, Fullscreen } from '@material-ui/icons'
 
 export const Contests: FC<Props> = ({ navigate }) => {
@@ -13,19 +13,19 @@ export const Contests: FC<Props> = ({ navigate }) => {
             loading={loading}
             error={error}
         >
-            <Typography variant="h4">
+            <Typography variant="h4" color='primary'>
                 {data?.currentWedding.name}
             </Typography>
 
             <Grid cell={{ width: 250, height: 130 }}>
-                {data?.currentWedding.contests.map(({ id, name, conditions }) => (
+                {data?.currentWedding.contests.map(({ id, name }) => (
                     <Cell key={id}>
                         <Card>
-                            <CardContent style={{ maxHeight: '100%', overflow: 'hidden' }}>
+                            <CardContent>
                                 <Typography
                                     variant="h5"
                                     component="h5"
-                                    onClick={() => navigate?.(`contests/${id}`)}
+                                    onClick={() => navigate?.(`contests/${id}/conditions`)}
                                 >
                                     {name}
                                 </Typography>

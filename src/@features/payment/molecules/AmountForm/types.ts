@@ -5,4 +5,5 @@ export interface Props<T extends FieldValues> extends BaseTextFieldProps {
     name: Extract<keyof T, string>
     control: Control<T>
     values: number[]
+    disabled: boolean
 }
