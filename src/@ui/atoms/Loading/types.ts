@@ -1,6 +1,6 @@
-import { ApolloError } from 'apollo-client'
+import { ApolloError } from '@apollo/client'
 
 export interface Props extends UseStyle {
-  loading: boolean
-  error?: ApolloError
+    loading: boolean
+    error?: ApolloError
 }

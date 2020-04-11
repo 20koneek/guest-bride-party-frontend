@@ -1,0 +1,3 @@
+export {
+    NewPaymentPage,
+} from './pages'

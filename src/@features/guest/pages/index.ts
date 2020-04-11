@@ -1,8 +1,11 @@
 import { memo } from 'react'
 import { NewGuest } from './NewGuest'
-import { AddCard } from './AddCard'
-import { withFirebase, withGuest } from '@hoc'
-import { withOutCard, withOutGuest } from '../hoc'
+import { NotAuth } from './NotAuth'
+import { withFirebase, withLoadGuest } from '@hoc'
+import { withOutGuest } from '../hoc'
+import { Guest } from './Guest'
+import { withOutCard } from '../features/card/hoc/withOutCard'
 
-export const NewGuestPage = withFirebase(withGuest(withOutCard(withOutGuest(memo(NewGuest)))))
-export const AddCardPage = withFirebase(withGuest(withOutCard(memo(AddCard))))
+export const GuestsPage = withFirebase(withLoadGuest(Guest))
+export const NewGuestPage = withFirebase(withLoadGuest(withOutCard(withOutGuest(NewGuest))))
+export const NotAuthPage = memo(NotAuth)

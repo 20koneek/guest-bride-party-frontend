@@ -1,21 +1,16 @@
 import React, { FC } from 'react'
-import Typography from '@material-ui/core/Typography'
-import { WithStyles, withStyles } from '@material-ui/core/styles'
+import { Typography, TypographyProps } from '@material-ui/core'
 
-const Component: FC<WithStyles<'root'>> = ({
+export const PrimaryText: FC<TypographyProps> = ({
     children,
-    classes,
+    variant,
+    ...props
 }) => (
     <Typography
-        variant="h6"
-        className={classes.root}
+        {...props}
+        variant='h6'
+        color='primary'
     >
         {children}
     </Typography>
 )
-
-export const PrimaryText = withStyles(({ palette }) => ({
-    root: {
-        color: palette.primary.main,
-    },
-}))(Component)

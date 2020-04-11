@@ -59,4 +59,12 @@ interface UseStyle {
   style?: object
 }
 
-type Without<T, U> = Omit<T, keyof U>
+// type XOR<T, U> = (T | U) extends object
+//     ? (Without<T, U> & U) | (Without<U, T> & T)
+//     : T | U
+// type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never }
+// // Redefine RenderProps via XOR instead of Union operator
+// type RenderProps = XOR<
+//     { children: (api: API) => ReactNode },
+//     { render: (api: API) => ReactNode }
+//     >

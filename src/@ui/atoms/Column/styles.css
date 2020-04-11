@@ -2,6 +2,17 @@
 
 .column {
     display: grid;
-    grid-gap: 16px;
     width: 100%;
+}
+
+.column.small {
+    grid-gap: 8px;
+}
+
+.column.medium {
+    grid-gap: 16px;
+}
+
+.column.large {
+    grid-gap: 24px;
 }

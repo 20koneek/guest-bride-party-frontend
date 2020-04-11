@@ -1,8 +1,3 @@
-import { FirebaseContextProps } from '@lib/firebaseContext/types'
-import { RouteComponentProps } from '@reach/router'
-
-export interface PrivateDefaultProps {
-  rc: any
+export enum Routes {
+    Guest = 'guest',
 }
-
-export type PrivateProps = FirebaseContextProps & PrivateDefaultProps & RouteComponentProps

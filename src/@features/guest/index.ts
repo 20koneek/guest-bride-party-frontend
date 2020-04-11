@@ -1,1 +1,6 @@
-export { routes as guestRoutes } from './routes'
+export * from './features'
+export {
+    GuestsPage,
+    NewGuestPage,
+    NotAuthPage,
+} from './pages'
