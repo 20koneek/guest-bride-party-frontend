@@ -1,18 +1,12 @@
 import React, { FC } from 'react'
 import { Props } from './types'
 import { useContestQuery } from '../../hooks'
-import {
-    Hidden,
-    List,
-    ListItem,
-    ListItemText,
-    Typography,
-} from '@material-ui/core'
+import { Hidden, Typography } from '@material-ui/core'
 import { Loading } from '@ui/atoms'
 import { ArrowBackIos } from '@material-ui/icons'
 
-export const Contest: FC<Props> = ({ id, navigate }) => {
-    const { data, loading, error } = useContestQuery(id ?? '')
+export const Contest: FC<Props> = ({ contestId, navigate, children }) => {
+    const { data, loading, error } = useContestQuery(contestId ?? '')
 
     return (
         <Loading
@@ -27,14 +21,7 @@ export const Contest: FC<Props> = ({ id, navigate }) => {
                 {data?.currentContest.name}
             </Typography>
 
-
-            <List>
-                {data?.currentContest.conditions.map(({ id, name }) => (
-                    <ListItem key={id} onClick={() => navigate?.(`conditions/${id}/payments/new`)}>
-                        <ListItemText primary={name}/>
-                    </ListItem>
-                ))}
-            </List>
+            {children}
         </Loading>
     )
 }

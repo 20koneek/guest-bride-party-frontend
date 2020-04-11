@@ -10,6 +10,7 @@ import {
     ContestsPage,
     ConditionPage,
     NewPaymentPage,
+    ConditionsPage,
 } from '@features'
 
 const NotFound: FC<RouteComponentProps> = () => <p>Sorry, nothing here</p>
@@ -20,10 +21,12 @@ export const BaseRouter: FC = () => (
 
         <GuestsPage path='guest'>
             <ContestsPage path='/'/>
-            <ContestPage path='contests/:id'/>
-            <ConditionPage path='contests/:id/conditions/:id'>
-                <NewPaymentPage path='payments/new'/>
-            </ConditionPage>
+            <ContestPage path='contests/:contestId'>
+                <ConditionsPage path='/'/>
+                <ConditionPage path='conditions/:conditionId'>
+                    <NewPaymentPage path='payments/new'/>
+                </ConditionPage>
+            </ContestPage>
         </GuestsPage>
         <NewGuestPage path='guest/:weddingId'/>
         <NotAuthPage path='guest/not-auth'/>
