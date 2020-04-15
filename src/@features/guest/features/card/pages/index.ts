@@ -5,5 +5,5 @@ import { UpdateCard } from './UpdateCard'
 import { memo } from 'react'
 import { withOutCard } from '../../../hoc/withOutCard'
 
-export const NewCardPage = withFirebase(withLoadGuest(memo(AddCard)))
+export const NewCardPage = withFirebase(withLoadGuest(withOutCard(memo(AddCard))))
 export const UpdateCardPage = withLoadGuest(withGuest(withOutCard(memo(UpdateCard))))

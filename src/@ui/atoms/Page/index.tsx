@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './styles.css'
+import { Container } from '@material-ui/core'
 
 export const Page: React.FC = ({ children }) => (
-    <div className={styles.page}>
+    <Container className={styles.page}>
         {children}
-    </div>
+    </Container>
 )

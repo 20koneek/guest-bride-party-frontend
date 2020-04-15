@@ -52,11 +52,11 @@ export type Payment = {
     __typename?: 'Payment';
     id: Scalars['ID'];
     amount: Scalars['Int'];
-    status: Status;
+    status: PaymentStatus;
     contestCondition: ContestCondition;
 };
 
-export enum Status {
+export enum PaymentStatus {
     Init = 'Init',
     Run = 'Run',
     Failed = 'Failed',
@@ -76,7 +76,7 @@ export type Mutation = {
     skipCard: Guest;
     updateCard: Guest;
     createGuest: Guest;
-    createPayment: Payment;
+    createPayment: Scalars['String'];
     updatePaymentStatus: Payment;
     createWedding: Wedding;
 };
@@ -99,7 +99,7 @@ export type MutationCreatePaymentArgs = {
 
 
 export type MutationUpdatePaymentStatusArgs = {
-    status: Status;
+    status: PaymentStatus;
     id: Scalars['String'];
 };
 
