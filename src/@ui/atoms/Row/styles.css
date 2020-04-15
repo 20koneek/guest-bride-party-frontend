@@ -1,0 +1,32 @@
+@import '../../../@styles/index.css';
+
+.row {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    width: 100%;
+}
+
+.row.nullable {
+    grid-gap: 0;
+}
+
+.row.small {
+    grid-gap: 8px;
+}
+
+.row.medium {
+    grid-gap: 16px;
+}
+
+.row.large {
+    grid-gap: 24px;
+}
+
+.row.left {
+    justify-content: left;
+}
+
+.row.right {
+    justify-content: right;
+}

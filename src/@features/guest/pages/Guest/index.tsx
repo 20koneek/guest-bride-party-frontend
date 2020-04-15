@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import { Props } from './types'
 import { Container } from '@material-ui/core'
-import { PrimaryText } from '@ui'
+import { Column } from '@ui/atoms/Column'
 
-export const Guest: FC<Props> = ({ children, currentGuest }) => (
+export const Guest: FC<Props> = ({ children }) => (
     <Container>
-        <PrimaryText>
-            GUEST {currentGuest?.name}
-        </PrimaryText>
-
-        {children}
+        <Column>
+            {children}
+        </Column>
     </Container>
 )
