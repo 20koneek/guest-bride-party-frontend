@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { Props } from './types'
-import { useWeddingQuery } from '../../hooks'
 import { IconButton, Typography } from '@material-ui/core'
-import { Card, CardActions, CardContent, Cell, Grid, Loading } from '@ui'
 import { FavoriteBorder, Fullscreen } from '@material-ui/icons'
+import { Card, CardActions, CardContent, Cell, Grid, Loading } from '@ui'
+import { Props } from './types'
+import { useWeddingQuery } from '../../../../hooks'
 
 export const Contests: FC<Props> = ({ navigate }) => {
     const { data, loading, error } = useWeddingQuery()

@@ -1,5 +1,4 @@
 export * from './features'
 export {
-    NewGuestPage,
-    NotAuthPage,
+    WeddingPage,
 } from './pages'

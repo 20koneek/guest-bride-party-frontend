@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
+import { navigate } from '@reach/router'
 import { LeftNavigation, Loading } from '@ui'
 import { Props } from './types'
 import { useContestQuery } from '../../hooks'
-import { navigate } from '@reach/router'
 
 export const Contest: FC<Props> = ({ contestId, children }) => {
     const { data, loading, error } = useContestQuery(contestId ?? '')

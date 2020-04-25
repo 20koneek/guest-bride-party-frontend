@@ -13,7 +13,7 @@ export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
             const { status } = parse(location?.search ?? '') as { status: CardStatus }
 
             updateCard({ variables: { id, status } })
-                .then(() => navigate?.('/guest'))
+                .then(() => navigate?.('/wedding'))
         }
     }, [id])
 
