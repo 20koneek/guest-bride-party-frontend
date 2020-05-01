@@ -7,7 +7,7 @@ export const withOutCard: WithOutCard = (Component) => (props) => {
     // @ts-ignore
     const cardStatus: CardStatus = props.currentGuest?.cardStatus
 
-    if (cardStatus && cardStatus !== CardStatus.NotSet) {
+    if (cardStatus && cardStatus !== CardStatus.Init) {
         navigate('/wedding')
         return null
     }

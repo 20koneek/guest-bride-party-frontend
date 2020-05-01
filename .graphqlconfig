@@ -1,0 +1,9 @@
+{
+    "name": "Remote Schema",
+    "schemaPath": "schema.graphql",
+    "extensions": {
+        "endpoints": {
+            "url": "http://localhost:5000/graphql"
+        }
+    }
+}

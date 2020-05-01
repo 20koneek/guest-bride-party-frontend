@@ -1,3 +1,4 @@
+export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string;
@@ -38,14 +39,20 @@ export type Guest = {
     __typename?: 'Guest';
     id: Scalars['ID'];
     name: Scalars['String'];
-    cardStatus: CardStatus;
+    card?: Maybe<GuestCard>;
+};
+
+export type GuestCard = {
+    __typename?: 'GuestCard';
+    id: Scalars['ID'];
+    status: CardStatus;
 };
 
 export enum CardStatus {
-    NotSet = 'NotSet',
+    Init = 'Init',
+    Skipped = 'Skipped',
     Confirmed = 'Confirmed',
-    Failed = 'Failed',
-    Skipped = 'Skipped'
+    Failed = 'Failed'
 }
 
 export type Payment = {
@@ -78,7 +85,6 @@ export type Mutation = {
     createGuest: Guest;
     createPayment: Scalars['String'];
     updatePaymentStatus: Payment;
-    createWedding: Wedding;
 };
 
 

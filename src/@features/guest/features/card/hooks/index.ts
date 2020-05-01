@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client'
-import { Mutation, MutationUpdateCardArgs } from '../../../../../types/graphql.d'
+import { Mutation } from '../../../../../types/graphql.d'
 import { addCardMutation, updateCardMutation } from '@api'
 
 export const useAddCardMutation = () => (
@@ -7,5 +7,6 @@ export const useAddCardMutation = () => (
 )
 
 export const useUpdateCardMutation = () => (
+    // @ts-ignore
     useMutation<Pick<Mutation, 'updateCard'>, MutationUpdateCardArgs>(updateCardMutation)
 )
