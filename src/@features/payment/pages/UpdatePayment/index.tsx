@@ -15,7 +15,7 @@ export const UpdatePayment: FC<Props> = ({ paymentId, location, navigate }) => {
             updatePaymentStatus({ variables: { id: paymentId, status } })
                 .then(() => navigate?.('/wedding'))
         }
-    }, [paymentId])
+    }, [location, navigate, paymentId, updatePaymentStatus])
 
     return (
         <Loading

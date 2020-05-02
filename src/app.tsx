@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { hot } from 'react-hot-loader'
 import { Theme } from '@ui'
 import apolloClient from '@lib/apolloClient'
 import { ApolloProvider } from '@apollo/client'
 import { FirebaseProvider } from '@lib/firebaseContext'
 import { BaseRouter } from './routes'
 
-const App: React.FC = () => (
+export const App: React.FC = () => (
     <Theme>
         <ApolloProvider client={apolloClient}>
             <FirebaseProvider>
@@ -15,5 +14,3 @@ const App: React.FC = () => (
         </ApolloProvider>
     </Theme>
 )
-
-export default hot(module)(App)

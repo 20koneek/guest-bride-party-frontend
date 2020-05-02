@@ -15,7 +15,7 @@ export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
             updateCard({ variables: { id, status } })
                 .then(() => navigate?.('/wedding'))
         }
-    }, [id])
+    }, [id, location, navigate, updateCard])
 
     return (
         <Loading

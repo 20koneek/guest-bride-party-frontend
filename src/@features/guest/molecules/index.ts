@@ -1,1 +1,1 @@
-// export { New } from './New'
+export { NewGuestForm } from './NewGuestForm'
