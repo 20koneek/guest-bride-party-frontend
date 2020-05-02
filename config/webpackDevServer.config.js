@@ -15,8 +15,7 @@ const sockPath = process.env.WDS_SOCKET_PATH
 const sockPort = process.env.WDS_SOCKET_PORT
 
 module.exports = (proxy, allowedHost) => ({
-    disableHostCheck:
-        !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
+    disableHostCheck: !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
     compress: true,
     clientLogLevel: 'none',
     contentBase: paths.appPublic,

@@ -12,7 +12,7 @@
         "yarn": ">=1.21.1"
     },
     "dependencies": {
-        "@apollo/client": "3.0.0-beta.44",
+        "@apollo/client": "3.0.0-beta.43",
         "@babel/core": "7.9.6",
         "@material-ui/core": "4.9.12",
         "@material-ui/icons": "4.9.1",

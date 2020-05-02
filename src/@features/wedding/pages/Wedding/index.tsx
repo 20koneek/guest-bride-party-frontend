@@ -5,8 +5,8 @@ import { Props } from './types'
 import { useWeddingQuery } from '../../hooks'
 
 export const Wedding: FC<Props> = ({ children }) => {
-    const { data, loading, error } = useWeddingQuery()
-    console.log(data)
+    const { loading, error } = useWeddingQuery()
+
     return (
         <Container>
             <Column>
