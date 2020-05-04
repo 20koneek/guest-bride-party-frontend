@@ -85,6 +85,7 @@ export type Mutation = {
     createGuest: Guest;
     createPayment: Scalars['String'];
     updatePaymentStatus: Payment;
+    createPost: Post;
 };
 
 
@@ -109,6 +110,11 @@ export type MutationUpdatePaymentStatusArgs = {
     id: Scalars['String'];
 };
 
+
+export type MutationCreatePostArgs = {
+    input: PostInput;
+};
+
 export type GuestInput = {
     name: Scalars['String'];
     weddingId: Scalars['String'];
@@ -117,6 +123,16 @@ export type GuestInput = {
 export type PaymentInput = {
     amount: Scalars['Float'];
     conditionId: Scalars['String'];
+};
+
+export type PostInput = {
+    messages: Scalars['String'];
+};
+
+export type Post = {
+    __typename?: 'Post';
+    id: Scalars['ID'];
+    message: Scalars['String'];
 };
 
 
