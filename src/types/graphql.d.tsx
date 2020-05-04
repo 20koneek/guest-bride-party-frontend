@@ -15,10 +15,16 @@ export type Query = {
     currentGuest: Guest;
     currentPayments: Array<Payment>;
     currentWedding: Wedding;
+    wedding: Wedding;
 };
 
 
 export type QueryCurrentContestArgs = {
+    id: Scalars['String'];
+};
+
+
+export type QueryWeddingArgs = {
     id: Scalars['String'];
 };
 
@@ -74,7 +80,6 @@ export type Wedding = {
     __typename?: 'Wedding';
     id: Scalars['ID'];
     name: Scalars['String'];
-    contests: Array<Contest>;
 };
 
 export type Mutation = {
@@ -154,3 +159,4 @@ const result: IntrospectionResultData = {
     },
 }
 export default result
+    

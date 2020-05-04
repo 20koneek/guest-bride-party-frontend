@@ -12,3 +12,16 @@ export const currentContestQuery = gql`
         }
     }
 `
+
+export const currentContestsQuery = gql`
+    query CurrentContests {
+        currentContests {
+            id
+            name
+            conditions {
+                id
+                name
+            }
+        }
+    }
+`

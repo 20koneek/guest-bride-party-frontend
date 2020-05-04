@@ -13,29 +13,39 @@ import {
     UpdatePaymentPage,
     WeddingPage,
 } from '@features'
+import { PartRoute } from './PartRoute'
 
 const NotFound: FC<RouteComponentProps> = () => <p>Sorry, nothing here</p>
 
 export const BaseRouter: FC = () => (
     <Router>
+        <PartRoute path='wedding'>
+            <WeddingPage path=':weddingId'>
+                <ContestsPage path='/'/>
+
+                <ContestPage path='contests/:contestId'>
+                    <PartRoute path='conditions'>
+                        <ConditionsPage path='/'/>
+                        <ConditionPage path=':conditionId'>
+                            <NewPaymentPage path='payments/new'/>
+                        </ConditionPage>
+                    </PartRoute>
+                </ContestPage>
+
+                <UpdatePaymentPage path='payments/:paymentId/update'/>
+
+                <PartRoute path='guest'>
+                    <NewGuestPage path='new'/>
+                    <NotAuthPage path='not-auth'/>
+
+                    <PartRoute path='card'>
+                        <NewCardPage path='new'/>
+                        <UpdateCardPage path=':id/update'/>
+                    </PartRoute>
+                </PartRoute>
+            </WeddingPage>
+        </PartRoute>
+
         <NotFound default/>
-
-        <WeddingPage path='wedding'>
-            <ContestsPage path='/'/>
-            <ContestPage path='contests/:contestId'>
-                <ConditionsPage path='conditions'/>
-                <ConditionPage path='conditions/:conditionId'>
-                    <NewPaymentPage path='payments/new'/>
-                </ConditionPage>
-            </ContestPage>
-
-            <UpdatePaymentPage path='payments/:paymentId/edit'/>
-        </WeddingPage>
-
-        <NewGuestPage path='guest/:weddingId'/>
-        <NotAuthPage path='guest/not-auth'/>
-
-        <NewCardPage path='guest/card/new'/>
-        <UpdateCardPage path='guest/card/update/:id'/>
     </Router>
 )

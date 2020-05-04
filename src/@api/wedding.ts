@@ -5,10 +5,15 @@ export const currentWeddingQuery = gql`
         currentWedding {
             id
             name
-            contests {
-                id
-                name
-            }
+        }
+    }
+`
+
+export const weddingQuery = gql`
+    query CurrentWedding($id: String!) {
+        wedding(id: $id) {
+            id
+            name
         }
     }
 `

@@ -3,22 +3,18 @@ import { IconButton, Typography } from '@material-ui/core'
 import { FavoriteBorder, Fullscreen } from '@material-ui/icons'
 import { Card, CardActions, CardContent, Cell, Grid, Loading } from '@ui'
 import { Props } from './types'
-import { useWeddingQuery } from '../../../../hooks'
+import { useContestsQuery } from '../../hooks'
 
 export const Contests: FC<Props> = ({ navigate }) => {
-    const { data, loading, error } = useWeddingQuery()
+    const { data, loading, error } = useContestsQuery()
 
     return (
         <Loading
             loading={loading}
             error={error}
         >
-            <Typography variant="h4" color='primary'>
-                {data?.currentWedding.name}
-            </Typography>
-
             <Grid cell={{ width: 250, height: 130 }}>
-                {data?.currentWedding.contests.map(({ id, name }) => (
+                {data?.currentContests.map(({ id, name }) => (
                     <Cell key={id}>
                         <Card>
                             <CardContent>
