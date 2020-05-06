@@ -25,22 +25,3 @@ export const createGuestMutation = gql`
         }
     }
 `
-
-export const addCardMutation = gql`
-    mutation AddCard {
-        addCard
-    }
-`
-
-export const updateCardMutation = gql`
-    mutation UpdateCard($id: String!, $status: CardStatus!) {
-        updateCard(id: $id, status: $status) {
-            id
-            name
-            card {
-                id
-                status
-            }
-        }
-    }
-`

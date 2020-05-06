@@ -10,8 +10,11 @@ export const updatePaymentStatusMutation = gql`
     mutation UpdatePaymentStatus($id: String!, $status: PaymentStatus!) {
         updatePaymentStatus(id: $id, status: $status) {
             id
-            amount
-            status
+            name
+            card {
+                id
+                status
+            }
         }
     }
 `

@@ -55,6 +55,9 @@ export const CardTabs = withStyles(() => ({
             borderBottomRightRadius: 16,
         },
     },
+    scroller: {
+        borderRadius: '0 16px 16px 0',
+    },
     indicator: {
         backgroundColor: 'transparent',
     },

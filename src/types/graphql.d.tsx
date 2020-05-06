@@ -86,16 +86,15 @@ export type Mutation = {
     __typename?: 'Mutation';
     addCard: Scalars['String'];
     skipCard: Guest;
-    updateCard: Guest;
+    updatePaymentStatus: Guest;
     createGuest: Guest;
     createPayment: Scalars['String'];
-    updatePaymentStatus: Payment;
     createPost: Post;
 };
 
 
-export type MutationUpdateCardArgs = {
-    status: CardStatus;
+export type MutationUpdatePaymentStatusArgs = {
+    status: PaymentStatus;
     id: Scalars['String'];
 };
 
@@ -107,12 +106,6 @@ export type MutationCreateGuestArgs = {
 
 export type MutationCreatePaymentArgs = {
     input: PaymentInput;
-};
-
-
-export type MutationUpdatePaymentStatusArgs = {
-    status: PaymentStatus;
-    id: Scalars['String'];
 };
 
 

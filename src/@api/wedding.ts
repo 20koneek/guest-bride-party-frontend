@@ -10,7 +10,7 @@ export const currentWeddingQuery = gql`
 `
 
 export const weddingQuery = gql`
-    query CurrentWedding($id: String!) {
+    query Wedding($id: String!) {
         wedding(id: $id) {
             id
             name

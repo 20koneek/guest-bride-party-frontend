@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Props } from './types'
 import { useConditionQuery } from '../../hooks'
-import { Loading } from '@ui'
+import { ContentColumn, Loading } from '@ui'
 
 export const Condition: FC<Props> = ({ conditionId, contestId, children }) => {
     const { data, loading, error } = useConditionQuery({ contestId: contestId ?? '', conditionId: conditionId ?? '' })
@@ -11,8 +11,13 @@ export const Condition: FC<Props> = ({ conditionId, contestId, children }) => {
             loading={loading}
             error={error}
         >
-            {data.condition?.name}
-            {children}
+            <ContentColumn
+                variant='body1'
+                color='textPrimary'
+                title={data.condition?.name ?? ''}
+            >
+                {children}
+            </ContentColumn>
         </Loading>
     )
 }
