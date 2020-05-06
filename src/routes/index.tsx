@@ -9,6 +9,7 @@ import {
     NewCardPage,
     NewGuestPage,
     NewPaymentPage,
+    NewPostPage,
     NotAuthPage,
     UpdateCardPage,
     UpdatePaymentPage,
@@ -34,6 +35,10 @@ export const BaseRouter: FC = () => (
             </ContestPage>
 
             <UpdatePaymentPage path='payments/:paymentId/update'/>
+
+            <PartRoute path='posts'>
+                <NewPostPage path='new'/>
+            </PartRoute>
         </CurrentWeddingPage>
 
         <WeddingPage path='weddings/:weddingId'>

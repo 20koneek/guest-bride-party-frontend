@@ -3,6 +3,7 @@ import { Loading } from '@ui'
 import { Props } from './types'
 import { useCurrentWeddingQuery } from '../../hooks'
 import { WeddingTemplate } from '../../templates'
+import { WeddingContent } from '../../molecules/WeddingContent'
 
 export const CurrentWedding: FC<Props> = ({ children }) => {
     const { data, loading, error } = useCurrentWeddingQuery()
@@ -14,7 +15,9 @@ export const CurrentWedding: FC<Props> = ({ children }) => {
         >
             {data?.currentWedding && (
                 <WeddingTemplate wedding={data?.currentWedding}>
-                    {children}
+                    <WeddingContent>
+                        {children}
+                    </WeddingContent>
                 </WeddingTemplate>
             )}
         </Loading>

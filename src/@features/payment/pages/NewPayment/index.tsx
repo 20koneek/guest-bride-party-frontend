@@ -21,8 +21,6 @@ export const NewPayment: FC<Props> = ({ conditionId, navigate }) => {
         })
     }
 
-    console.log(loading)
-
     return (
         <PaymentForm
             loading={loading}
