@@ -124,7 +124,7 @@ export type PaymentInput = {
 };
 
 export type PostInput = {
-    messages: Scalars['String'];
+    message: Scalars['String'];
 };
 
 export type Post = {
@@ -152,4 +152,3 @@ const result: IntrospectionResultData = {
     },
 }
 export default result
-    

@@ -1,29 +1,24 @@
 import React, { FC } from 'react'
 import { Props } from './types'
-// import { PaymentForm } from '../../molecules/PaymentForm'
-// import { useCreatePaymentMutation } from '../../hooks'
+import { useCreatePostMutation } from '../../hooks'
+import { FormValues } from '../../molecules/NewPostForm/types'
+import { NewPostForm } from '../../molecules/NewPostForm'
 
-export const NewPost: FC<Props> = ({}) => {
-    // const [createPayment, { loading }] = useCreatePaymentMutation()
-    // console.log(createPayment)
-    // const onChange = (amount: number) => {
-        // createPayment({
-        //     variables: {
-        //         input: {
-        //             amount,
-        //             // conditionId: conditionId ?? '',
-        //         },
-        //     },
-        // }).then(({ data }) => {
-        //     if (data?.createPayment) {
-        //         document.location.href = data.createPayment
-        //     }
-        // })
-    // }
+export const NewPost: FC<Props> = ({ navigate }) => {
+    const [createPost, { loading }] = useCreatePostMutation()
+
+    const onSubmit = async (input: FormValues) => {
+        console.log(input)
+        await createPost({
+            variables: { input },
+        }).then(() => navigate?.('/wedding'))
+    }
 
     return (
-        <div>
-            Post
-        </div>
+        <NewPostForm
+            onSubmit={onSubmit}
+            defaultValues={{ message: '' }}
+            loading={loading}
+        />
     )
 }

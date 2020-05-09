@@ -5,8 +5,12 @@ import { useCurrentWeddingQuery } from '../../hooks'
 import { WeddingTemplate } from '../../templates'
 import { WeddingContent } from '../../molecules/WeddingContent'
 
-export const CurrentWedding: FC<Props> = ({ children }) => {
+export const CurrentWedding: FC<Props> = ({ children, navigate }) => {
     const { data, loading, error } = useCurrentWeddingQuery()
+
+    const newPostOnClick = () => {
+        navigate?.('posts/new')
+    }
 
     return (
         <Loading
@@ -15,7 +19,7 @@ export const CurrentWedding: FC<Props> = ({ children }) => {
         >
             {data?.currentWedding && (
                 <WeddingTemplate wedding={data?.currentWedding}>
-                    <WeddingContent>
+                    <WeddingContent newPostOnClick={newPostOnClick}>
                         {children}
                     </WeddingContent>
                 </WeddingTemplate>

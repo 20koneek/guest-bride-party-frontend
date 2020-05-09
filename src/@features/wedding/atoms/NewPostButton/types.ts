@@ -1,5 +1,7 @@
 import { WithStyles } from '@material-ui/core'
 import { styles } from './styles'
 
-export type Props = WithStyles<typeof styles>
+export interface Props extends WithStyles<typeof styles> {
+    onClick: VoidFunction
+}
 
