@@ -8,6 +8,11 @@ export const currentContestQuery = gql`
             conditions {
                 id
                 name
+                color {
+                    id
+                    name
+                    value
+                }
             }
         }
     }
@@ -18,10 +23,6 @@ export const currentContestsQuery = gql`
         currentContests {
             id
             name
-            conditions {
-                id
-                name
-            }
         }
     }
 `
