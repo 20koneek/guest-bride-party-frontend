@@ -4,7 +4,7 @@ import { Props } from './types'
 
 export const WeddingTemplate: FC<Props> = ({ children, wedding }) => (
     <Page>
-        <ContentColumn title={wedding.name}>
+        <ContentColumn title={wedding.title}>
             {children}
         </ContentColumn>
     </Page>

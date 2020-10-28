@@ -302,7 +302,6 @@ module.exports = (webpackEnv) => {
                             // exclude: cssModuleRegex,
                             use: getStyleLoaders({
                                 importLoaders: 1,
-                                localsConvention: 'camelCase',
                                 modules: {
                                     localIdentName: '[local]--[hash:base64:5]',
                                 },
@@ -310,41 +309,6 @@ module.exports = (webpackEnv) => {
                             }),
                             sideEffects: true,
                         },
-                        // {
-                        //     test: cssModuleRegex,
-                        //     use: getStyleLoaders({
-                        //         importLoaders: 1,
-                        //         sourceMap: isEnvProduction && shouldUseSourceMap,
-                        //         modules: {
-                        //             getLocalIdent: getCSSModuleLocalIdent,
-                        //         },
-                        //     }),
-                        // },
-                        // {
-                        //     test: sassRegex,
-                        //     exclude: sassModuleRegex,
-                        //     use: getStyleLoaders(
-                        //         {
-                        //             importLoaders: 3,
-                        //             sourceMap: isEnvProduction && shouldUseSourceMap,
-                        //         },
-                        //         'sass-loader',
-                        //     ),
-                        //     sideEffects: true,
-                        // },
-                        // {
-                        //     test: sassModuleRegex,
-                        //     use: getStyleLoaders(
-                        //         {
-                        //             importLoaders: 3,
-                        //             sourceMap: isEnvProduction && shouldUseSourceMap,
-                        //             modules: {
-                        //                 getLocalIdent: getCSSModuleLocalIdent,
-                        //             },
-                        //         },
-                        //         'sass-loader',
-                        //     ),
-                        // },
                         {
                             loader: require.resolve('file-loader'),
                             exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],

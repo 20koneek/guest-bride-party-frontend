@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
 import { LinearProgress } from '@material-ui/core'
@@ -7,7 +8,10 @@ import { FormValues, Props } from './types'
 import { validationSchema } from './validation'
 
 export const NewPostForm: FC<Props> = ({ onSubmit, defaultValues, loading }) => {
-    const { control, handleSubmit, errors } = useForm<FormValues>({ defaultValues, validationSchema })
+    const { control, handleSubmit } = useForm<FormValues>({
+        defaultValues,
+        resolver: yupResolver(validationSchema),
+    })
 
     return (
         <form className={styles.newGuestForm} onSubmit={handleSubmit(onSubmit)}>
@@ -17,7 +21,6 @@ export const NewPostForm: FC<Props> = ({ onSubmit, defaultValues, loading }) => 
                     label="Поздравление"
                     name="message"
                     autoComplete='off'
-                    errors={errors}
                     control={control}
                 />
 

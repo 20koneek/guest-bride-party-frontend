@@ -5,6 +5,7 @@ import { getOsEnv, getOsEnvOrNull } from './utils'
  */
 const measurementId = getOsEnvOrNull('APP_MEASUREMENT_ID')
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     node: process.env.NODE_ENV || 'development',
     isProduction: process.env.NODE_ENV === 'production',

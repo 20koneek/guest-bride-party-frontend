@@ -4,6 +4,8 @@ import { Container } from '@material-ui/core'
 
 export const Page: React.FC = ({ children }) => (
     <Container className={styles.page}>
-        {children}
+        <>
+            {children}
+        </>
     </Container>
 )
