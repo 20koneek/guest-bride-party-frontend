@@ -12,7 +12,7 @@ export default {
     isTest: process.env.NODE_ENV === 'test',
     isDevelopment: process.env.NODE_ENV === 'development',
     api: {
-        schema: getOsEnv('APP_API_SCHEMA'),
+        schema: getOsEnvOrNull('APP_API_SCHEMA'),
         host: getOsEnvOrNull('APP_API_HOST'),
         port: getOsEnvOrNull('APP_API_PORT'),
         endpoint: getOsEnv('APP_API_ENDPOINT'),
