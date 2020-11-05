@@ -5,7 +5,10 @@ export const currentGuestQuery = gql`
         currentGuest {
             id
             name
-            cardStatus
+            card {
+                id
+                status
+            }
         }
     }
 `
@@ -15,23 +18,10 @@ export const createGuestMutation = gql`
         createGuest(input: $input) {
             id
             name
-            cardStatus
-        }
-    }
-`
-
-export const addCardMutation = gql`
-  mutation AddCard {
-    addCard
-  }
-`
-
-export const updateCardMutation = gql`
-    mutation UpdateCard($id: String!, $status: CardStatus!) {
-        updateCard(id: $id, status: $status) {
-            id
-            name
-            cardStatus
+            card {
+                id
+                status
+            }
         }
     }
 `

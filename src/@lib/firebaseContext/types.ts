@@ -1,7 +1,7 @@
-import { auth, User } from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 
 export interface FirebaseContextProps {
-  currentUser: User | null
-  auth: auth.Auth
+    currentUser: firebase.User | null
+    auth: firebase.auth.Auth
 }

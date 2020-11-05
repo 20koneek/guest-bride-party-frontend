@@ -1,9 +1,10 @@
 import { useMutation, useQuery } from '@apollo/client'
 import {
     Mutation,
-    MutationCreateGuestArgs, MutationUpdateCardArgs, Query,
+    MutationCreateGuestArgs,
+    Query,
 } from '../../../types/graphql.d'
-import { addCardMutation, createGuestMutation, currentGuestQuery, updateCardMutation } from '@api'
+import { createGuestMutation, currentGuestQuery } from '@api'
 
 export const useCurrentGuestQuery = () => (
     useQuery<Pick<Query, 'currentGuest'>>(currentGuestQuery)
@@ -11,12 +12,4 @@ export const useCurrentGuestQuery = () => (
 
 export const useCreateGuestMutation = () => (
     useMutation<Pick<Mutation, 'createGuest'>, MutationCreateGuestArgs>(createGuestMutation)
-)
-
-export const useAddCardMutation = () => (
-    useMutation<Pick<Mutation, 'addCard'>>(addCardMutation)
-)
-
-export const useUpdateCardMutation = () => (
-    useMutation<Pick<Mutation, 'updateCard'>, MutationUpdateCardArgs>(updateCardMutation)
 )

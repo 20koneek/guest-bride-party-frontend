@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app'
-import '@babel/polyfill'
+import { App } from './app'
 
-const render = (): void => {
-  ReactDOM.render(<App/>, document.getElementById('root'))
-}
-
-module.hot?.accept('./app', render)
-
-render()
+ReactDOM.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root'),
+)

@@ -1,4 +1,6 @@
+export * from './card'
 export * from './guest'
 export * from './wedding'
 export * from './contests'
 export * from './payment'
+export * from './post'

@@ -1,21 +1,21 @@
 import React, { FC, useEffect } from 'react'
+import { parse } from 'query-string'
+import { Loading } from '@ui'
 import { Props } from './types'
 import { useUpdateCardMutation } from '../../hooks'
-import { Loading } from '@ui'
-import { CardStatus } from '../../../../../../types/graphql.d'
-import { parse } from 'query-string'
+import { PaymentStatus } from '../../../../../../types/graphql.d'
 
 export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
     const [updateCard, updateCardMutation] = useUpdateCardMutation()
 
     useEffect(() => {
         if (id) {
-            const { status } = parse(location?.search ?? '') as { status: CardStatus }
+            const { status } = parse(location?.search ?? '') as { status: PaymentStatus }
 
             updateCard({ variables: { id, status } })
-                .then(() => navigate?.('/guest'))
+                .then(() => navigate?.('/wedding'))
         }
-    }, [id])
+    }, [id, location, navigate, updateCard])
 
     return (
         <Loading

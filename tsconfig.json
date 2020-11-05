@@ -1,25 +1,25 @@
 {
     "compilerOptions": {
-        "sourceMap": true,
         "target": "es5",
         "jsx": "react",
-        "module": "es6",
+        "module": "esnext",
         "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "declaration": false,
-        "removeComments": true,
-        "noImplicitReturns": true,
+        "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "strictPropertyInitialization": true,
         "strictNullChecks": true,
         "noUnusedLocals": true,
         "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "noEmit": true,
         "skipLibCheck": true,
         "noImplicitAny": false,
         "outDir": "build",
         "lib": [
-            "es2020",
-            "dom"
+            "dom",
+            "dom.iterable",
+            "esnext"
         ],
         "baseUrl": "src",
         "paths": {
@@ -28,6 +28,9 @@
             ]
         }
     },
+    "include": [
+        "src"
+    ],
     "exclude": [
         "build",
         "node_modules"

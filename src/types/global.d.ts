@@ -59,6 +59,8 @@ interface UseStyle {
   style?: object
 }
 
+type Size = 'small' | 'medium' | 'large'
+
 // type XOR<T, U> = (T | U) extends object
 //     ? (Without<T, U> & U) | (Without<U, T> & T)
 //     : T | U

@@ -14,13 +14,17 @@ export const NewPayment: FC<Props> = ({ conditionId, navigate }) => {
                     conditionId: conditionId ?? '',
                 },
             },
-        }).then(() => navigate?.('../../../'))
+        }).then(({ data }) => {
+            if (data?.createPayment) {
+                document.location.href = data.createPayment
+            }
+        })
     }
 
     return (
         <PaymentForm
             loading={loading}
-            values={[100, 300, 1000, 5000]}
+            values={[100_00, 300_00, 1000_00, 5000_00]}
             onChange={onChange}
         />
     )

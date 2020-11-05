@@ -8,7 +8,21 @@ export const currentContestQuery = gql`
             conditions {
                 id
                 name
+                color {
+                    id
+                    name
+                    value
+                }
             }
+        }
+    }
+`
+
+export const currentContestsQuery = gql`
+    query CurrentContests {
+        currentContests {
+            id
+            name
         }
     }
 `

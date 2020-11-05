@@ -1,112 +1,26 @@
-'use strict'
+const express = require('express');
+const path = require('path');
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
 
-process.env.BABEL_ENV = 'development'
-process.env.NODE_ENV = 'development'
+const isDev = process.env.NODE_ENV !== 'production';
+const PORT = process.env.PORT || 7777;
 
-process.on('unhandledRejection', err => {
-  throw err
-})
-
-require('../config/env.config')
-
-const fs = require('fs')
-const chalk = require('react-dev-utils/chalk')
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const clearConsole = require('react-dev-utils/clearConsole')
-const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles')
-const {
-  choosePort,
-  createCompiler,
-  prepareProxy,
-  prepareUrls,
-} = require('react-dev-utils/WebpackDevServerUtils')
-const openBrowser = require('react-dev-utils/openBrowser')
-const paths = require('../config/paths')
-const configFactory = require('../config/webpack.config')
-const createDevServerConfig = require('../config/webpackDevServer.config')
-
-const useYarn = fs.existsSync(paths.yarnLockFile)
-const isInteractive = process.stdout.isTTY
-
-if (!checkRequiredFiles([paths.appHtml, paths.appIndex])) {
-  process.exit(1)
-}
-
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000
-const HOST = process.env.HOST || '0.0.0.0'
-
-if (process.env.HOST) {
-  console.log(
-    chalk.cyan(
-      `Attempting to bind to HOST environment variable: ${chalk.yellow(
-        chalk.bold(process.env.HOST),
-      )}`,
-    ),
-  )
-  console.log(
-    `If this was unintentional, check that you haven't mistakenly set it in your shell.`,
-  )
-  console.log(
-    `Learn more here: ${chalk.yellow('https://bit.ly/CRA-advanced-config')}`,
-  )
-  console.log()
-}
-
-const { checkBrowsers } = require('react-dev-utils/browsersHelper')
-checkBrowsers(paths.appPath, isInteractive)
-  .then(() => choosePort(HOST, DEFAULT_PORT))
-  .then(port => {
-    if (port == null) {
-      return
+if (!isDev && cluster.isMaster) {
+    console.error(`Node cluster master ${process.pid} is running`);
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
     }
-    const config = configFactory('development')
-    const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'
-    const appName = require(paths.appPackageJson).name
-    const useTypeScript = fs.existsSync(paths.appTsConfig)
-    const urls = prepareUrls(protocol, HOST, port)
-    const devSocket = {
-      warnings: (warnings) => (
-        devServer.sockWrite(devServer.sockets, 'warnings', warnings)
-      ),
-      errors: (errors) => (
-        devServer.sockWrite(devServer.sockets, 'errors', errors)
-      ),
-    }
-    const compiler = createCompiler({
-      appName,
-      config,
-      devSocket,
-      urls,
-      useYarn,
-      useTypeScript,
-      webpack,
-    })
-    const proxySetting = require(paths.appPackageJson).proxy
-    const proxyConfig = prepareProxy(proxySetting, paths.appPublic)
-    const serverConfig = createDevServerConfig(proxyConfig, urls.lanUrlForConfig)
-    const devServer = new WebpackDevServer(compiler, serverConfig)
-    devServer.listen(port, HOST, err => {
-      if (err) {
-        return console.log(err)
-      }
-      if (isInteractive) {
-        clearConsole()
-      }
-      console.log(chalk.cyan('Starting the development server...\n'))
-      // openBrowser(urls.localUrlForBrowser)
+    cluster.on('exit', (worker, code, signal) => {
+        console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
     });
-
-    ['SIGINT', 'SIGTERM'].forEach(function(sig) {
-      process.on(sig, function() {
-        devServer.close()
-        process.exit()
-      })
-    })
-  })
-  .catch(err => {
-    if (err && err.message) {
-      console.log(err.message)
-    }
-    process.exit(1)
-  })
+} else {
+    const app = express();
+    app.use(express.static(path.resolve(__dirname, `../build`)));
+    app.get('*', function (request, response) {
+        response.sendFile(path.resolve(__dirname, `../build`, 'index.html'));
+    });
+    app.listen(PORT, function () {
+        console.error(`Node ${isDev ? 'dev server' : 'cluster worker ' + process.pid}: listening on port ${PORT}`);
+    });
+}
