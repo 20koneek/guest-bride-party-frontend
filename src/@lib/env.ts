@@ -15,7 +15,7 @@ export default {
         schema: getOsEnvOrNull('APP_API_SCHEMA'),
         host: getOsEnvOrNull('APP_API_HOST'),
         port: getOsEnvOrNull('APP_API_PORT'),
-        endpoint: getOsEnv('APP_API_ENDPOINT'),
+        endpoint: getOsEnvOrNull('APP_API_ENDPOINT'),
         url: getOsEnvOrNull('APP_API_URL'),
     },
     firebase: {
