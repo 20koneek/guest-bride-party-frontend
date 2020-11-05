@@ -9,8 +9,8 @@
         "gen": "graphql-codegen --config codegen.yml"
     },
     "engines": {
-        "node": ">=14.1.0",
-        "yarn": ">=1.21.1"
+        "node": ">=14.15.0",
+        "yarn": ">=1.22.4"
     },
     "dependencies": {
         "@apollo/client": "3.2.5",
