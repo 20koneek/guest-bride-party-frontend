@@ -23,9 +23,12 @@ export const BaseRouter: FC = () => (
         <CurrentWeddingPage path='/'>
             <PostsPage path='/'>
                 <ContestsPage path='/'/>
-
-                <UpdatePaymentPage path='payments/:paymentId/update'/>
             </PostsPage>
+
+            <PartRoute path='card'>
+                <NewCardPage path='new'/>
+                <UpdateCardPage path=':id/update'/>
+            </PartRoute>
 
             <ContestPage path='contests/:contestId'>
                 <PartRoute path='conditions'>
@@ -37,13 +40,10 @@ export const BaseRouter: FC = () => (
                 </PartRoute>
             </ContestPage>
 
+            <UpdatePaymentPage path='payments/:paymentId/update'/>
+
             <PartRoute path='posts'>
                 <NewPostPage path='new'/>
-            </PartRoute>
-
-            <PartRoute path='card'>
-                <NewCardPage path='new'/>
-                <UpdateCardPage path=':id/update'/>
             </PartRoute>
         </CurrentWeddingPage>
 

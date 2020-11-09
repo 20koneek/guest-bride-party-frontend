@@ -13,7 +13,7 @@ export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
             const { status } = parse(location?.search ?? '') as { status: PaymentStatus }
 
             updateCard({ variables: { id, status } })
-                .then(() => navigate?.('/wedding'))
+                .then(() => navigate?.('/'))
         }
     }, [id, location, navigate, updateCard])
 

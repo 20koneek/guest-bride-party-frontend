@@ -13,7 +13,7 @@ export const UpdatePayment: FC<Props> = ({ paymentId, location, navigate }) => {
             const { status } = parse(location?.search ?? '') as { status: PaymentStatus }
 
             updatePaymentStatus({ variables: { id: paymentId, status } })
-                .then(() => navigate?.('/wedding'))
+                .then(() => navigate?.('/'))
         }
     }, [location, navigate, paymentId, updatePaymentStatus])
 
