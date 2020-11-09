@@ -12,8 +12,15 @@ import {
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
-export const Card: FC<UseStyle> = ({ children, className }) => (
-    <div className={classNames(styles.card, className)}>
+export const Card: FC<UseStyle & { onClick?: VoidFunction }> = ({
+    className,
+    onClick,
+    children,
+}) => (
+    <div
+        className={classNames(styles.card, className)}
+        onClick={onClick}
+    >
         {children}
     </div>
 )
