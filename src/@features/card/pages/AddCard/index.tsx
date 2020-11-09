@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Props } from './types'
 import { AddCardTemplate } from '../../templates'
-import { useAddCardMutation, useUpdateCardMutation } from '../../hooks'
+import { useAddCardMutation, useSkipCardMutation } from '../../hooks'
 
 export const AddCard: FC<Props> = ({ currentGuest }) => {
     const [addCard, addCardMutation] = useAddCardMutation()
-    const [skipCard, skipCardMutation] = useUpdateCardMutation()
+    const [skipCard, skipCardMutation] = useSkipCardMutation()
 
     const addCardOnClick = async () => {
         const response = await addCard()

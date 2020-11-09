@@ -17,7 +17,7 @@ export const NewGuest: FC<Props> = ({ weddingId, navigate }) => {
                         name: input.name,
                     },
                 },
-            }).then(() => navigate?.('../../card/new'))
+            }).then(() => navigate?.('/card/new'))
         }
     }
 

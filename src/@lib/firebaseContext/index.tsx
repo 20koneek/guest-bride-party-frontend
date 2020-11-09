@@ -18,12 +18,6 @@ export const FirebaseProvider: FC = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
-            const token = await user?.getIdToken()
-
-            if (token) {
-                localStorage.setItem('token', token)
-            }
-
             setCurrentUser(user)
             setLoaded(true)
         })

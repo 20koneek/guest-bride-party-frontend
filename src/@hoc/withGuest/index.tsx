@@ -5,7 +5,7 @@ export const withGuest: WithGuest = (Component) => (props) => {
     // @ts-ignore
     if (!props?.currentGuest) {
         // @ts-ignore
-        // props?.navigate(Routes.NotAuth)
+        props?.navigate('not-auth')
         return null
     }
 

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { RouteComponentProps, Router } from '@reach/router'
+import { Router } from '@reach/router'
 import {
     ConditionPage,
     ConditionsPage,
@@ -11,18 +11,21 @@ import {
     NewPaymentPage,
     NewPostPage,
     NotAuthPage,
+    PostsPage,
     UpdateCardPage,
     UpdatePaymentPage,
     WeddingPage,
 } from '@features'
 import { PartRoute } from './PartRoute'
 
-const NotFound: FC<RouteComponentProps> = () => <p>Sorry, nothing here</p>
-
 export const BaseRouter: FC = () => (
     <Router>
-        <CurrentWeddingPage path='wedding'>
-            <ContestsPage path='/'/>
+        <CurrentWeddingPage path='/'>
+            <PostsPage path='/'>
+                <ContestsPage path='/'/>
+
+                <UpdatePaymentPage path='payments/:paymentId/update'/>
+            </PostsPage>
 
             <ContestPage path='contests/:contestId'>
                 <PartRoute path='conditions'>
@@ -34,25 +37,22 @@ export const BaseRouter: FC = () => (
                 </PartRoute>
             </ContestPage>
 
-            <UpdatePaymentPage path='payments/:paymentId/update'/>
-
             <PartRoute path='posts'>
                 <NewPostPage path='new'/>
-            </PartRoute>
-        </CurrentWeddingPage>
-
-        <WeddingPage path='weddings/:weddingId'>
-            <PartRoute path='guest'>
-                <NewGuestPage path='new'/>
-                <NotAuthPage path='not-auth'/>
             </PartRoute>
 
             <PartRoute path='card'>
                 <NewCardPage path='new'/>
                 <UpdateCardPage path=':id/update'/>
             </PartRoute>
+        </CurrentWeddingPage>
+
+        <WeddingPage path='weddings/:weddingId'>
+            <PartRoute path='guest'>
+                <NewGuestPage path='new'/>
+            </PartRoute>
         </WeddingPage>
 
-        <NotFound default/>
+        <NotAuthPage path='not-auth'/>
     </Router>
 )

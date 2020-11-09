@@ -8,10 +8,9 @@ export const NewPost: FC<Props> = ({ navigate }) => {
     const [createPost, { loading }] = useCreatePostMutation()
 
     const onSubmit = async (input: FormValues) => {
-        console.log(input)
         await createPost({
             variables: { input },
-        }).then(() => navigate?.('/wedding'))
+        }).then(() => navigate?.('/'))
     }
 
     return (

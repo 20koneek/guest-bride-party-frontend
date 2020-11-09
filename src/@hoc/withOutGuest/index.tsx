@@ -1,14 +1,14 @@
 import React from 'react'
+import { navigate } from '@reach/router'
+import { Guest } from 'types/graphql.d'
 import { WithOutGuest } from './types'
-import { Guest } from '../../../../types/graphql.d'
 
 export const withOutGuest: WithOutGuest = (Component) => (props) => {
     // @ts-ignore
     const currentGuest: Guest = props?.currentGuest
 
     if (currentGuest) {
-        // @ts-ignore
-        props?.navigate(`/guest/card/new`)
+        navigate(`/card/new`)
         return null
     }
 

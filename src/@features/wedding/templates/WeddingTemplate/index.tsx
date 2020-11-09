@@ -1,11 +1,9 @@
 import React, { FC } from 'react'
-import { ContentColumn, Page } from '@ui'
+import { ContentColumn } from '@ui'
 import { Props } from './types'
 
 export const WeddingTemplate: FC<Props> = ({ children, wedding }) => (
-    <Page>
-        <ContentColumn title={wedding.title}>
-            {children}
-        </ContentColumn>
-    </Page>
+    <ContentColumn title={wedding.title}>
+        {children}
+    </ContentColumn>
 )

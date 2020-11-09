@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client'
-import { Query } from '../../../types/graphql.d'
+import { Query } from 'types/graphql.d'
 import { currentContestQuery, currentContestsQuery } from '@api'
 
 export const useContestQuery = (id: string) => (

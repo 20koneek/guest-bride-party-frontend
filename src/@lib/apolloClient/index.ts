@@ -1,27 +1,30 @@
 import {
-    InMemoryCache,
     ApolloClient,
-    HttpLink,
     ApolloLink,
-    concat,
+    InMemoryCache,
+    HttpLink,
 } from '@apollo/client'
-import uri from '../apiUrl'
+import { setContext } from '@apollo/client/link/context'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import env from '@lib/env'
+import { appUrl } from '../apiUrl'
 
-const httpLink = new HttpLink({ uri })
+const httpLink = new HttpLink({ uri: appUrl })
 
-const authMiddleware = new ApolloLink((operation, forward) => {
-    const token = localStorage.getItem('token')
+const authLink = setContext(async (_, { headers }) => {
+    const token = await firebase.auth().currentUser?.getIdToken()
 
-    operation.setContext({
+    return {
         headers: {
+            ...headers,
             token,
         },
-    })
-
-    return forward(operation)
+    }
 })
 
 export default new ApolloClient({
-    link: concat(authMiddleware, httpLink),
+    link: ApolloLink.from([authLink, httpLink]),
     cache: new InMemoryCache(),
+    connectToDevTools: env.isDevelopment,
 })

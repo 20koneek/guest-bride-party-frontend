@@ -1,6 +1,6 @@
-import { Wedding } from '../../../../types/graphql.d'
+import { Wedding } from 'types/graphql.d'
 
 export interface Props {
-    wedding: Wedding
+    wedding: Pick<Wedding, 'id' | 'title'>
 }
 

@@ -9,9 +9,9 @@ export const currentWeddingQuery = gql`
     }
 `
 
-export const weddingQuery = gql`
-    query Wedding($id: String!) {
-        wedding(id: $id) {
+export const weddingInfoQuery = gql`
+    query WeddingInfo($id: String!) {
+        weddingInfo(id: $id) {
             id
             title
         }

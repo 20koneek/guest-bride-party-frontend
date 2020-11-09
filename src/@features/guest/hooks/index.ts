@@ -3,7 +3,7 @@ import {
     Mutation,
     MutationCreateGuestArgs,
     Query,
-} from '../../../types/graphql.d'
+} from 'types/graphql.d'
 import { createGuestMutation, currentGuestQuery } from '@api'
 
 export const useCurrentGuestQuery = () => (

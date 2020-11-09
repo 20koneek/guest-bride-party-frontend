@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { ApolloError } from '@apollo/client'
-import { Guest } from '../../types/graphql.d'
+import { Guest } from 'types/graphql.d'
 
 export interface WithLoadGuestProps {
     currentGuest?: Guest

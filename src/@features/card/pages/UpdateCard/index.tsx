@@ -3,7 +3,7 @@ import { parse } from 'query-string'
 import { Loading } from '@ui'
 import { Props } from './types'
 import { useUpdateCardMutation } from '../../hooks'
-import { PaymentStatus } from '../../../../../../types/graphql.d'
+import { PaymentStatus } from 'types/graphql.d'
 
 export const UpdateCard: FC<Props> = ({ id, location, navigate }) => {
     const [updateCard, updateCardMutation] = useUpdateCardMutation()

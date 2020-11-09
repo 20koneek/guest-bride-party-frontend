@@ -97,6 +97,12 @@ export type Color = {
     status: Color;
 };
 
+export type WeddingInfo = {
+    __typename?: 'WeddingInfo';
+    id: Scalars['ID'];
+    title: Scalars['String'];
+};
+
 export type GuestInput = {
     name: Scalars['String'];
     weddingId: Scalars['String'];
@@ -145,7 +151,7 @@ export type Query = {
     currentGuest: Guest;
     currentPayments: Array<Payment>;
     currentWedding: Wedding;
-    wedding: Wedding;
+    weddingInfo: WeddingInfo;
 };
 
 
@@ -154,7 +160,7 @@ export type QueryCurrentContestArgs = {
 };
 
 
-export type QueryWeddingArgs = {
+export type QueryWeddingInfoArgs = {
     id: Scalars['String'];
 };
 
@@ -190,21 +196,13 @@ export type MutationCreatePostArgs = {
 };
 
 
-export interface IntrospectionResultData {
-    __schema: {
-        types: {
-            kind: string;
-            name: string;
-            possibleTypes: {
-                name: string;
-            }[];
-        }[];
-    };
+export interface PossibleTypesResultData {
+    possibleTypes: {
+        [key: string]: string[]
+    }
 }
 
-const result: IntrospectionResultData = {
-    '__schema': {
-        'types': [],
-    },
+const result: PossibleTypesResultData = {
+    'possibleTypes': {},
 }
 export default result
