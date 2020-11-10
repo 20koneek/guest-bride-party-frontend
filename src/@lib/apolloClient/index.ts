@@ -12,16 +12,13 @@ import { appUrl } from '../apiUrl'
 
 const httpLink = new HttpLink({ uri: appUrl })
 
-const authLink = setContext(async (_, { headers }) => {
-    const token = await firebase.auth().currentUser?.getIdToken()
 
-    return {
-        headers: {
-            ...headers,
-            token,
-        },
-    }
-})
+const authLink = setContext(async (_, { headers = {} }) => ({
+    headers: {
+        ...headers,
+        token: await firebase.auth().currentUser?.getIdToken()
+    },
+}))
 
 export default new ApolloClient({
     link: ApolloLink.from([authLink, httpLink]),
